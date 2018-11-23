@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
 
+    # login
     def create
 
         @user = User.find_by(username: params[:username])
@@ -10,6 +11,7 @@ class AuthController < ApplicationController
             # bad post fetch request or wrong password - give error
 
         end
+        render "Hello"
 
     end
 end
