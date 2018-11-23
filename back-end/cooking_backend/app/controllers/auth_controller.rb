@@ -12,7 +12,11 @@ class AuthController < ApplicationController
             render json: {
                 error: false,
                 message: "signed in",
-                token: token
+                token: token,
+                user_info: {
+                    username: @user.username,
+                    email: @user.email
+                }
             }, status: :accepted
 
         else
