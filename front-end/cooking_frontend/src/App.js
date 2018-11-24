@@ -6,7 +6,7 @@ import LoginForm from './components/loginForm'
 import Profile from './components/profile'
 import './App.css';
 import Nav from './components/nav'
-
+import NotFound from './components/notFound'
 class App extends Component {
 
     constructor(){
@@ -18,20 +18,20 @@ class App extends Component {
 
     componentDidMount(){
 
-    let token = localStorage.getItem('token')
-    if(token){
-      fetch(`http://localhost:3000/profile`, {
-        headers: {
-          "Authorization" : `Bearer ${token}`
+        let token = localStorage.getItem('token')
+        if(token){
+          fetch(`http://localhost:3000/profile`, {
+            headers: {
+              "Authorization" : `Bearer ${token}`
+            }
+          }).then(res => res.json())
+          .then(json => {
+            // console.log(json)
+            this.setState({
+              userInfo: json.user
+            })
+          })
         }
-      }).then(res => res.json())
-      .then(json => {
-        // console.log(json)
-        this.setState({
-          userInfo: json.user
-        })
-      })
-    }
   }
 
   updateUserInfo = (userInfo) => {
@@ -44,7 +44,7 @@ class App extends Component {
     logout = () => {
          localStorage.clear()
          this.setState({userInfo: null})
-         debugger;
+
          this.props.history.push('/login')
     }
   render() {
@@ -60,7 +60,7 @@ class App extends Component {
                () => <LoginForm updateUserInfo={this.updateUserInfo}/>
            } />
  <Route exact path="/profile" render={() => <Profile userInfo={this.state.userInfo}/>} />
-
+  <Route component={NotFound} />
          </Switch>
          </div>
          </BrowserRouter>

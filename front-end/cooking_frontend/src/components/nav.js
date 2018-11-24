@@ -3,7 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 
 const Nav = ({ location: { pathname }, logged_in, logout }) => {
-    debugger;
+
   return (
     <Menu pointing secondary>
       {logged_in ? (

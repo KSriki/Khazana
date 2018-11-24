@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Image } from "semantic-ui-react";
 import {Redirect} from 'react-router-dom';
-
+import NotFound from './notFound'
 
 /* props: {
   avatar: 'someURL',
@@ -19,6 +19,6 @@ const Profile = ({userInfo}) => {
         <Card.Description>{userInfo.email}</Card.Description>
       </Card.Content>
     </Card>
-  ) : null
+) : <NotFound />
 }
 export default Profile;
