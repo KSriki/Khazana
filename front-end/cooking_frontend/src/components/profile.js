@@ -1,7 +1,6 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 
-import NotFound from './notFound'
 
 /* props: {
   avatar: 'someURL',
