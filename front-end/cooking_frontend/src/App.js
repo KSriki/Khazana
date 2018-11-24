@@ -12,7 +12,7 @@ class App extends Component {
     constructor(){
         super()
         this.state = {
-            userInfo: false
+            userInfo: null
         }
     }
 
@@ -42,6 +42,7 @@ class App extends Component {
   }
 
     logout = () => {
+        console.log("logging out")
          localStorage.clear()
          this.setState({userInfo: null})
 
@@ -51,22 +52,22 @@ class App extends Component {
     return (
         <Fragment>
 
-        <BrowserRouter>
-        <div>
+
+
         <Nav logged_in={!!this.state.userInfo} logout={this.logout}/>
          <Switch>
 
            <Route exact path="/login" render={
-               () => <LoginForm updateUserInfo={this.updateUserInfo}/>
+               () => <LoginForm logged_in={!!this.state.userInfo} updateUserInfo={this.updateUserInfo}/>
            } />
- <Route exact path="/profile" render={() => <Profile userInfo={this.state.userInfo}/>} />
-  <Route component={NotFound} />
+            <Route exact path="/profile" render={() => <Profile userInfo={this.state.userInfo}/>} />
+            <Route component={NotFound} />
          </Switch>
-         </div>
-         </BrowserRouter>
+
+
        </Fragment>
     );
   }
 }
 
-export default App
+export default withRouter(App)

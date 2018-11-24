@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { Button, Form, Segment, Message } from "semantic-ui-react";
-
+import {Redirect} from 'react-router-dom';
 class LoginForm extends React.Component {
   state = {
     username: "",
@@ -44,7 +44,8 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    return (
+     
+        return !this.props.logged_in ? (
       <Segment>
         <Form
           onSubmit={this.handleLoginSubmit}
@@ -77,7 +78,8 @@ class LoginForm extends React.Component {
           <Button type="submit">Login</Button>
         </Form>
       </Segment>
-    );
+  ) : <Redirect to="/profile" />
+
   }
 }
 
