@@ -1,6 +1,15 @@
 # CookingForMillenials
 
 
+Resume
+Yearbook for Flatiron
+
+Tests for code
+-> in general, immediate payoff
+-> JUNIT or general
+-> create-react-app has JEST test framework
+-> ENZYME -> snapshot testing enzyme makes it for you! a snapshot 
+
 Component Hierarchy
 
 App
@@ -35,11 +44,16 @@ Recipe-Steps HAS MANY S-I
     -step number
     -instructions
     -image
-Steps-Ingredients (joiner)
+Steps-Ingredients (joiner) 
     -amount
 Ingredients HAS MANY S-I
     -type
+    -name
 
+Explanations: 
+Recipes have many Steps
+Steps may have more than one ingredient used
+Ingredients can be reused in multiple steps
 
 Controller Routes so far:
 
