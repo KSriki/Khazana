@@ -9,7 +9,7 @@
 
 user1 = User.create(username: "john", password: "cena", email: "skalaputapu@gmail.com")
 
-recipe1 = Recipe.create(user_id: user1.id, title: "Peanut Butter Jelly Sandwich", category: "cold snack", time:"5 minutes")
+recipe1 = Recipe.create(user_id: user1.id, title: "Peanut Butter Jelly Sandwich", category: "cold snack", time:"5 minutes", description: "A simple PB&J sandwich for those wanting a quick meal. Requires a toaster.")
 
 #uniqueness of ingredients names ?
 ingredient1 = Ingredient.create(name:"Bread", pyramid: "Carbs")

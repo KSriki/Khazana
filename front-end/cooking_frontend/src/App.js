@@ -7,50 +7,89 @@ import { connect } from "react-redux";
 import LoginForm from './components/loginForm'
 import Profile from './components/profile'
 import './App.css';
-import Nav from './components/nav'
+import Nav from './navigation/nav'
 import NotFound from './components/notFound'
 
 import {fetchUser } from "./redux/actions";
-import Directory from './components/Directory';
+import RecipeCatalog from './containers/RecipeCatalog';
+import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
 class App extends Component {
 
+    constructor(){
+      super()
+      this.state = {
+        visible: false
+      }
+    }
 
-    // constructor(){
-    //     super()
-    //     this.state = {
-    //         userInfo: null
-    //     }
-    // }
-
+    handleClick = () => {
+      
+      let flip = this.state.visible;
+      flip = !flip
+      this.setState({ visible: flip })
+    
+    }
+    
+    handleSidebarHide = () => this.setState({ visible: false })
+    
+    handleHomeClick = () => {
+      
+      this.props.history.push("/")
+      this.handleClick();
+    }
     componentDidMount(){
       this.props.fetchUser()
-     
-
-  }
-
- 
-
+    }
 
   render() {
     return (
-        <Fragment>
+        <div style={{height: '100vh'}}>
+        <Nav sidebarToggle={this.handleClick} />
 
-
-
-        <Nav />
-
-         <Switch>
-            <Route exact path="/" render={Directory} />
+        <Sidebar.Pushable as={Segment}>
+            <Sidebar
+              as={Menu}
+              animation='overlay'
+              icon='labeled'
+              inverted
+              vertical
+              visible={this.state.visible}
+              width='thin'
+            >
+              <Menu.Item as='a' onClick={this.handleHomeClick}>
+                <Icon name='home' />
+                Home
+              </Menu.Item>
+              
+            </Sidebar>
+  
+            <Sidebar.Pusher>
+              <Segment basic>
+              <Switch>
+            <Route exact path="/" render={RecipeCatalog} />
            <Route exact path="/login" render={
-               () => <LoginForm logged_in={!!this.props.userInfo} updateUserInfo={this.updateUserInfo}/>
+               () => <LoginForm />
            } />
             <Route exact path="/profile" render={() => <Profile/>} />
             <Route component={NotFound} />
          </Switch>
+              </Segment>
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
 
 
-       </Fragment>
+
+
+
+
+
+
+
+
+
+         
+       </div>
     );
   }
 }

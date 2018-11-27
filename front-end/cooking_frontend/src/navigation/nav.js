@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import { Button, Menu, Icon } from "semantic-ui-react";
 
 import { connect } from "react-redux";
 import { loadProfile, logout } from "../redux/actions";
 
-const Nav = ({ location: { pathname }, userInfo, logout, history }) => {
+const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle }) => {
 
 
   const navLogout = () => {
@@ -18,15 +18,19 @@ const Nav = ({ location: { pathname }, userInfo, logout, history }) => {
 
 
   return (
-    <Menu pointing secondary>
+    <Menu>
       {!!userInfo ? (
         <Fragment>
+        
           <Menu.Item
-            as={NavLink}
-            to="/profile"
-            name="Profile"
-            active={pathname === "/profile"}
-          />
+            className="bars"
+            onClick={sidebarToggle}
+          >
+         <Icon className="bars" />
+          </Menu.Item>
+          
+        
+
           <Menu.Menu position="right">
             <Menu.Item to="/logout" name="Logout" onClick={navLogout} />
           </Menu.Menu>
@@ -39,6 +43,7 @@ const Nav = ({ location: { pathname }, userInfo, logout, history }) => {
           active={pathname === "/login"}
         />
       )}
+     
     </Menu>
   );
 };

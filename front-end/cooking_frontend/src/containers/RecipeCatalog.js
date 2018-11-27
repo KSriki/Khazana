@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 
 
-class Directory extends Component {
+class RecipeCatalog extends Component {
 
 
     render(){
@@ -17,6 +17,6 @@ class Directory extends Component {
 
 }
 
-export default withRouter(Directory)
+export default withRouter(RecipeCatalog)
 
 

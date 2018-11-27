@@ -1,7 +1,8 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Container, Card } from "semantic-ui-react";
 
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 /* props: {
   avatar: 'someURL',
@@ -11,15 +12,15 @@ import { connect } from "react-redux";
 const Profile = ({userInfo}) => {
 
     return userInfo ? (
-    <Card>
+    <Container>
 
       <Card.Content>
         <Card.Header>{userInfo.username}</Card.Header>
 
         <Card.Description>{userInfo.email}</Card.Description>
       </Card.Content>
-    </Card>
-) : null
+    </Container>
+) : <Redirect to="/login" />
 }
 
 
