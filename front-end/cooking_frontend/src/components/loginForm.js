@@ -2,6 +2,11 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Button, Form, Segment, Message } from "semantic-ui-react";
 import {Redirect} from 'react-router-dom';
+
+import { connect } from "react-redux";
+import { fetchUser } from "../redux/actions";
+
+
 class LoginForm extends React.Component {
   state = {
     username: "",
@@ -11,6 +16,13 @@ class LoginForm extends React.Component {
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   };
+
+  // updateUserInfo = (userInfo) => {
+    
+  //   // this.setState({
+  //   //   userInfo: userInfo
+  //   // })
+  // }
 
   handleLoginSubmit = () => {
     console.log('trying to sign in')
@@ -34,8 +46,9 @@ class LoginForm extends React.Component {
       //update user info state - fix with redux !!!!
 
       if(json.token){
-          this.props.updateUserInfo(json.user_info)
-       this.props.history.push('/profile')
+        console.log('updating user info')
+        // get user information and load it in
+         this.props.fetchUser()
       }
 
       //
@@ -45,7 +58,7 @@ class LoginForm extends React.Component {
 
   render() {
      
-        return !this.props.logged_in ? (
+        return !this.props.userInfo ? (
       <Segment>
         <Form
           onSubmit={this.handleLoginSubmit}
@@ -83,4 +96,16 @@ class LoginForm extends React.Component {
   }
 }
 
-export default withRouter(LoginForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchUser: () => dispatch(fetchUser()),
+  };
+}
+
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfo
+  }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(LoginForm));

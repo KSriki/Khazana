@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
+import { connect } from "react-redux";
 
 /* props: {
   avatar: 'someURL',
@@ -20,4 +21,11 @@ const Profile = ({userInfo}) => {
     </Card>
 ) : null
 }
-export default Profile;
+
+
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfo 
+  }
+}
+export default connect(mapStateToProps,null)(Profile);

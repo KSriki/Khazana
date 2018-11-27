@@ -2,11 +2,24 @@ import React, { Fragment } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 
-const Nav = ({ location: { pathname }, logged_in, logout }) => {
+import { connect } from "react-redux";
+import { loadProfile, logout } from "../redux/actions";
+
+const Nav = ({ location: { pathname }, userInfo, logout, history }) => {
+
+
+  const navLogout = () => {
+    console.log("logging out")
+     localStorage.clear()
+    //  setState({userInfo: null})
+    logout()
+     history.push('/login')
+ }
+
 
   return (
     <Menu pointing secondary>
-      {logged_in ? (
+      {!!userInfo ? (
         <Fragment>
           <Menu.Item
             as={NavLink}
@@ -15,7 +28,7 @@ const Nav = ({ location: { pathname }, logged_in, logout }) => {
             active={pathname === "/profile"}
           />
           <Menu.Menu position="right">
-            <Menu.Item to="/logout" name="Logout" onClick={logout} />
+            <Menu.Item to="/logout" name="Logout" onClick={navLogout} />
           </Menu.Menu>
         </Fragment>
       ) : (
@@ -30,4 +43,17 @@ const Nav = ({ location: { pathname }, logged_in, logout }) => {
   );
 };
 
-export default withRouter(Nav);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  };
+}
+
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfo 
+  }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Nav));
