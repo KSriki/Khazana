@@ -178,3 +178,5 @@ Recipe step has many S-I and has I  many through S-I
 
 Or: chain has manys - not working huh
 
+Heroku - cant use sqlite since sqlite is a file based db. (good for small scale app not for big scale app)
+
