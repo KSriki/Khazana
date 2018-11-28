@@ -36,22 +36,18 @@ export function fetchUser() {
     }
    
 }
-// export function loadProfile(token){
 
-//     if(token){
-//         fetch(`http://localhost:3000/profile`, {
-//           headers: {
-//             "Authorization" : `Bearer ${token}`
-//           }
-//         }).then(res => res.json())
-//         .then(json => {
-//           console.log(json)
-//           // this.setState({
-//           //   userInfo: json.user
-//           // })
-//           return {type: "LOGIN", userInfo: json.userInfo }
-//         })
-//       }
 
-    
-// }
+export function fetchRecipes() {
+    return (dispatch) => {
+        
+        dispatch({ type: 'START_RECIPES_FETCH_REQUEST' });
+      
+        fetch(`http://localhost:3000/recipes`).then(res => res.json())
+        .then(json => {
+        dispatch({type:"LOAD_ALL_RECIPES", allRecipes: json})
+        })
+        
+    }
+        // failed to fetch catch dispatch action
+}

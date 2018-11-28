@@ -10,7 +10,7 @@ import './App.css';
 import Nav from './navigation/nav'
 import NotFound from './components/notFound'
 
-import {fetchUser } from "./redux/actions";
+import {fetchUser, fetchRecipes } from "./redux/actions";
 import RecipeCatalog from './containers/RecipeCatalog';
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
@@ -40,6 +40,8 @@ class App extends Component {
     }
     componentDidMount(){
       this.props.fetchUser()
+      this.props.fetchRecipes();
+      
     }
 
   render() {
@@ -77,17 +79,6 @@ class App extends Component {
               </Segment>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
-
-
-
-
-
-
-
-
-
-
-
          
        </div>
     );
@@ -101,13 +92,14 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUser: () => dispatch(fetchUser())
+    fetchUser: () => dispatch(fetchUser()),
+    fetchRecipes: () => dispatch(fetchRecipes())
   };
 }
 
 const mapStateToProps = state => {
   return {
-    userInfo: state.userInfo 
+    userInfo: state.userInfo
   }
 }
 
