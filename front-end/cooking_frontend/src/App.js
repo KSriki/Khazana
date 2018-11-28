@@ -67,7 +67,7 @@ class App extends Component {
 							Home
 						</Menu.Item>
             {this.props.userInfo ? <Menu.Item as="a" onClick={this.handleProfileClick}>
-							<Icon name="home" />
+							<Icon name="user" />
 							Profile
 						</Menu.Item> : null}
             

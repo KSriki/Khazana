@@ -9,8 +9,8 @@ import { Redirect } from "react-router-dom";
   username: 'chandler Bing',
   email: 'sk@email.com'
 } */
-const Profile = ({userInfo}) => {
-
+const Profile = ({userInfo,getMyRecipes}) => {
+   
     return userInfo ? (
     <Container>
 
@@ -27,7 +27,7 @@ const Profile = ({userInfo}) => {
 ) : <Redirect to="/login" />
 }
 
-
+   
 const mapStateToProps = state => {
   return {
     userInfo: state.userInfo 

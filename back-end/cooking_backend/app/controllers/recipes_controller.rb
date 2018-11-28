@@ -5,6 +5,6 @@ class RecipesController < ApplicationController
         render json: Recipe.all
     end
 
-
+  
 
 end

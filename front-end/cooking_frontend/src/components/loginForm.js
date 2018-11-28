@@ -49,6 +49,9 @@ class LoginForm extends React.Component {
         console.log('updating user info')
         // get user information and load it in
          this.props.fetchUser()
+        
+         //get the users specific recipes either here or profile
+        //  this.props.fetchUserRecipes()
       }
 
       //
@@ -98,7 +101,7 @@ class LoginForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUser: () => dispatch(fetchUser()),
+    fetchUser: () => dispatch(fetchUser())
   };
 }
 

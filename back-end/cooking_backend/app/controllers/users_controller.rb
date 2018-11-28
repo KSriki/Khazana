@@ -4,7 +4,8 @@ class UsersController < ApplicationController
         token = request.headers["Authorization"].split(' ')[1]
         payload = decode(token)
         user = User.find(payload["user_id"])
-        render json: {user: UserSerializer.new(user)}, status: :accepted
+        myrecipes = Recipe.where(user_id: user.id)
+        render json: {user: UserSerializer.new(user), myrecipes: myrecipes}, status: :accepted
     end
 
     # Sign Up
@@ -16,6 +17,7 @@ def create
     render json: { error: 'failed to create user' }, status: :not_acceptable
   end
 end
+
 
 private
 

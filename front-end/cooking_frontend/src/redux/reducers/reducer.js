@@ -1,4 +1,4 @@
-const recipesReducer = (state = {allRecipes:[]}, action) => {
+const recipesReducer = (state = {allRecipes:[],myRecipes:null}, action) => {
 
     switch(action.type) {
         case "LOAD_RECIPES":
@@ -8,7 +8,10 @@ const recipesReducer = (state = {allRecipes:[]}, action) => {
         case "LOAD_ALL_RECIPES":
             return {...state, allRecipes: action.allRecipes}
         case "LOGOUT":
-            return Object.assign({},state,{userInfo: null});
+            return Object.assign({},state,{userInfo: null, myRecipes: null});
+        case "LOAD_MY_RECIPES":
+            // only when logged in and allrecipes loaded
+            return {...state, myRecipes: action.myRecipes}
         default:
             return state;
     }

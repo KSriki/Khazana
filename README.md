@@ -7,6 +7,30 @@ Cooking for Millenials
 
 THOUGHTS:
 
+Question:
+Could filter myRecipes from all recipes in the mapStateToProps instead of maintaining in redux state. BUT:
+
+custom reducer and action is better because its easier to understand/read logically
+
+Confuse people if they saw allRecipes being used and then they would need to figure out why
+Im only getting the user's specific recipes -> easier to communicate!
+
+-> Load on login ! not on App? but then error because of check for loaded allrecipes.
+-> Maybe have a delay and wait?
+
+After userInfo loaded -> call dispatch on that too. 
+so chain dispatch off of promise -> BUT WHAT ABOUT REFRESH?
+
+OUTCOME:
+Redux is for caching the state. Dont need to get data based off other fetched data
+otherwise the dispatch for allRecipes needs to do myRecipes and vice versa
+Knots & unnecessarily dependent.
+-> custom route fetch myRecipes
+-> Tie to profile page/RecipeList probably recipeList
+
+OR: return the users recipes within the original fetch since we have to fetch to user anyway
+-> best solution. When we get user we always get recipes
+
 QUESTION:
 Did too many db backend tables and worried about sideloading instead of one at a time. Now i realize i do need redux and i have no backend to support the front end.
 POSITIVE OUTCOME:

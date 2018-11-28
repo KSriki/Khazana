@@ -4,8 +4,8 @@
 
 
 
-export function loadRecipes(fetchRecipes) {
-    return { type: "LOAD_RECIPES", data: fetchRecipes };
+export function loadRecipes(recipes) {
+    return { type: "LOAD_RECIPES", data: recipes };
   }
 
 export function loadProfile(userInfo){
@@ -16,6 +16,24 @@ export function logout(){
     return {type: "LOGOUT"}
 }
 
+
+//refresh page reload need to get the users information if logged in
+// export function fetchMyRecipes(user_id){
+//     return (dispatch) => {
+
+          
+//         dispatch({ type: 'START_MY_RECIPES_FETCH_REQUEST' });
+      
+//         fetch(`http://localhost:3000/recipes/${user_id}`).then(res => res.json())
+//         .then(json => {
+//         dispatch({type:"LOAD_MY_RECIPES", myRecipes: json})
+//         })
+        
+//     }
+// }
+
+
+//maybe load from back end before sending to front end
 export function fetchUser() {
     return (dispatch) => {
         dispatch({ type: 'START_USER_FETCH_REQUEST' });
@@ -28,6 +46,8 @@ export function fetchUser() {
           }).then(res => res.json())
           .then(json => {
             dispatch({type:"LOAD_PROFILE", userInfo: json.user})
+            dispatch({type:"LOAD_MY_RECIPES", myRecipes: json.myrecipes})
+            //what if allrecipes not loaded on page refresh????
           })
         }
         else{
