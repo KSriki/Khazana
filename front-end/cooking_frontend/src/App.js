@@ -11,7 +11,7 @@ import NotFound from './components/notFound';
 
 import { fetchUser, fetchRecipes } from './redux/actions';
 import RecipeCatalog from './containers/RecipeCatalog';
-import { Rail, Sticky, Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
+import {  Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
 class App extends Component {
 	constructor() {
@@ -103,7 +103,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
 	return {
-		userInfo: state.userInfo,
+		userInfo: state.recipes.userInfo,
 	};
 };
 

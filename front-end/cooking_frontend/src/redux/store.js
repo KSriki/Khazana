@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware,compose } from "redux";
 import thunk from 'redux-thunk';
-import recipesReducer from "./reducers/reducer";
+import rootReducer from "./reducers/reducer";
 
 // import reducers
 
@@ -8,7 +8,7 @@ import recipesReducer from "./reducers/reducer";
 
 // actual instance of our store
 const store = createStore(
-    recipesReducer, compose(
+    rootReducer, compose(
       applyMiddleware(thunk),
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )

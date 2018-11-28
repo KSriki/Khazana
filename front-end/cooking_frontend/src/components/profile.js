@@ -4,7 +4,8 @@ import { Container, Card, Divider, Segment, Button, Modal, Header, Image, Icon }
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import MyRecipeList from '../containers/MyRecipeList'
-import RecipeForm from '../containers/RecipeForm'
+import RecipeForm from '../containers/RecipeForm/RecipeForm'
+import WizardForm from "../containers/RecipeForm/WizardForm";
 
 /* props: {
   avatar: 'someURL',
@@ -38,7 +39,7 @@ const Profile = ({userInfo}) => {
      
       <Modal.Description>
         <Header>Enter Details:</Header>
-        <RecipeForm />
+        <WizardForm />
       </Modal.Description>
     </Modal.Content>
     <Modal.Actions>
@@ -65,7 +66,7 @@ const Profile = ({userInfo}) => {
    
 const mapStateToProps = state => {
   return {
-    userInfo: state.userInfo 
+    userInfo: state.recipes.userInfo 
   }
 }
 export default connect(mapStateToProps,null)(Profile);

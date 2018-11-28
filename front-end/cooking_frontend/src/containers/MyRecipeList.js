@@ -22,7 +22,7 @@ class MyRecipeList extends Component {
 // could filter here but then the code would be confusing to read
   const mapStateToProps = state => {
     return {
-      myRecipes: state.myRecipes
+      myRecipes: state.recipes.myRecipes
     };
   }
   

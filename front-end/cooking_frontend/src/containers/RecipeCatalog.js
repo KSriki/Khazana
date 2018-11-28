@@ -9,7 +9,7 @@ import RecipeCard from "../components/RecipeCard"
 class RecipeCatalog extends Component {
    
     render(){
-
+     
         return (<div>
             {this.props.allRecipes.map(recipe => {return <RecipeCard recipe={recipe} />})}
         </div>);
@@ -19,10 +19,11 @@ class RecipeCatalog extends Component {
 
 }
 
-
+  
   const mapStateToProps = state => {
+  
     return {
-      allRecipes: state.allRecipes
+      allRecipes: state.recipes.allRecipes
     };
   }
   

@@ -1,3 +1,7 @@
+
+import { reducer as formReducer } from 'redux-form'
+import {  combineReducers } from 'redux'
+
 const recipesReducer = (state = {allRecipes:[],myRecipes:null}, action) => {
 
     switch(action.type) {
@@ -19,4 +23,13 @@ const recipesReducer = (state = {allRecipes:[],myRecipes:null}, action) => {
 
 }
 
-export default recipesReducer;
+const rootReducer = combineReducers({
+    // ...your other reducers here
+    // you have to pass formReducer under 'form' key,
+    // for custom keys look up the docs for 'getFormState'
+    form: formReducer,
+    recipes: recipesReducer
+  })
+  
+
+export default rootReducer;
