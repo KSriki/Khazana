@@ -1,8 +1,9 @@
 # CookingForMillenials
 
+Khazana by Srikant Kumar Kalaputapu
 
-Resume
-Yearbook for Flatiron
+Alternative Name: 
+Cooking for Millenials
 
 THOUGHTS:
 
