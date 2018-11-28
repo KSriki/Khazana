@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { Button, Menu, Icon } from "semantic-ui-react";
+import { Header, Button, Menu, Icon } from "semantic-ui-react";
 
 import { connect } from "react-redux";
 import { loadProfile, logout } from "../redux/actions";
@@ -18,6 +18,7 @@ const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle 
 
 
   return (
+ 
     <Menu>
       {!!userInfo ? (
         <Fragment>
@@ -29,7 +30,7 @@ const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle 
          <Icon className="bars" />
           </Menu.Item>
           
-        
+         
 
           <Menu.Menu position="right">
             <Menu.Item to="/logout" name="Logout" onClick={navLogout} />

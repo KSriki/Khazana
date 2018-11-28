@@ -19,6 +19,10 @@ const Profile = ({userInfo}) => {
 
         <Card.Description>{userInfo.email}</Card.Description>
       </Card.Content>
+      
+      
+
+
     </Container>
 ) : <Redirect to="/login" />
 }
