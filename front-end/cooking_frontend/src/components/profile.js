@@ -38,15 +38,10 @@ const Profile = ({userInfo}) => {
     <Modal.Content>
      
       <Modal.Description>
-        <Header>Enter Details:</Header>
         <WizardForm />
       </Modal.Description>
     </Modal.Content>
-    <Modal.Actions>
-      <Button primary>
-        Proceed <Icon name='right chevron' />
-      </Button>
-    </Modal.Actions>
+   
   </Modal>
 
 

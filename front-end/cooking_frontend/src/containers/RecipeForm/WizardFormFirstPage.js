@@ -2,29 +2,45 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
+import {Header, Form, Button, Icon, Divider } from 'semantic-ui-react'
 
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
+        <Header>General Information</Header>
       <Field
-        name="firstName"
+        name="title"
         type="text"
         component={renderField}
-        label="First Name"
+        label="Title"
       />
       <Field
-        name="lastName"
+        name="time"
         type="text"
         component={renderField}
-        label="Last Name"
+        label="Time"
       />
+      <Field
+        name="category"
+        type="text"
+        component={renderField}
+        label="Category"
+      />
+      <Field
+        name="description"
+        type="text"
+        component={renderField}
+        label="Description"
+      />
+      <Divider section />
       <div>
-        <button type="submit" className="next">
-          Next
-        </button>
+      <Button primary type="submit" className="next">
+        Next <Icon name='right chevron' />
+      </Button>
+      
       </div>
-    </form>
+    </Form>
   )
 }
 
