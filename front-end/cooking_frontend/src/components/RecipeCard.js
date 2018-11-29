@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { fetchRecipe } from "../redux/actions";
+
 import { Card } from 'semantic-ui-react'
  
 // add handleclick -> redux or pass prop
@@ -10,11 +10,11 @@ import { Card } from 'semantic-ui-react'
 
 //pass in props that handles going to show page.
 
-const RecipeCard = ({ recipe, fetchRecipe }) => {
+const RecipeCard = ({ recipe }) => {
 
     return (
         <Link to={'/recipes/'+recipe.id} >
-        <Card onClick={() => fetchRecipe(recipe.id)}>
+        <Card>
             <Card.Header>{recipe.title}</Card.Header>
             <Card.Description>{recipe.description}</Card.Description> 
         </Card>
@@ -23,10 +23,10 @@ const RecipeCard = ({ recipe, fetchRecipe }) => {
 
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchRecipe: (id) => dispatch(fetchRecipe(id))
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         fetchRecipe: (id) => dispatch(fetchRecipe(id))
+//     }
+// }
 
-export default withRouter(connect(null,mapDispatchToProps)(RecipeCard))
+export default withRouter(RecipeCard)

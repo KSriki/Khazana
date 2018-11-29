@@ -72,24 +72,25 @@ export function fetchRecipes() {
         // failed to fetch catch dispatch action
 }
 
-export function fetchRecipe(id){
-    return (dispatch) => {
-        let token = localStorage.getItem('token')
-        if(token){
-        dispatch({ type: 'START_RECIPE_FETCH_REQUEST' });
+//only really needed for edit
+// export function fetchRecipe(id){
+//     return (dispatch) => {
+//         let token = localStorage.getItem('token')
+//         if(token){
+//         dispatch({ type: 'START_RECIPE_FETCH_REQUEST' });
  
-            fetch(`http://localhost:3000/recipes/${id}`, {
-                  headers: {
-                    "Authorization" : `Bearer ${token}`
-                  }
-                }).then(res => res.json())
-                .then(json => {
+//             fetch(`http://localhost:3000/recipes/${id}`, {
+//                   headers: {
+//                     "Authorization" : `Bearer ${token}`
+//                   }
+//                 }).then(res => res.json())
+//                 .then(json => {
 
-                })
-        }
-        else{
-            dispatch({type:"FAILED_TO_FETCH_RECIPE"})
-        }
-    }
+//                 })
+//         }
+//         else{
+//             dispatch({type:"FAILED_TO_FETCH_RECIPE"})
+//         }
+//     }
     
-}
+// }
