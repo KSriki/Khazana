@@ -1,7 +1,7 @@
 
 
 import React, { Fragment, Component } from 'react'
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 // import { connect } from "react-redux";
 // import {fetchRecipes } from "../../redux/actions";
 

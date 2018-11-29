@@ -10,7 +10,8 @@ import Nav from './navigation/nav';
 import NotFound from './components/notFound';
 
 import { fetchUser, fetchRecipes } from './redux/actions';
-import RecipeCatalog from './containers/RecipeCatalog/RecipeCatalog';
+import RecipeCatalog from './RecipeCatalog/RecipeCatalog';
+import RecipeShowContainer from './RecipeCatalog/RecipeShowContainer';
 import {  Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
 class App extends Component {
@@ -49,7 +50,7 @@ class App extends Component {
 		return (
 			<div style={{ height: '100vh' }}>
 			
-						<Nav sidebarToggle={this.handleClick} />
+						<Nav sidebarToggle={this.handleClick} handleLogout={this.handleClick}/>
 
         
 				<Sidebar.Pushable as={Segment}>
@@ -77,6 +78,7 @@ class App extends Component {
 						<Segment basic>
 							<Switch>
 								<Route exact path="/" render={RecipeCatalog} />
+								<Route path = "/recipes/:id" render={RecipeShowContainer} />>
 								<Route exact path="/login" render={() => <LoginForm />} />
 								<Route exact path="/profile" render={() => <Profile />} />
 								<Route component={NotFound} />

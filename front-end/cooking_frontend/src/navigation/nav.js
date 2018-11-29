@@ -5,7 +5,7 @@ import { Header, Button, Menu, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { loadProfile, logout } from "../redux/actions";
 
-const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle }) => {
+const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle, handleLogout }) => {
 
 
   const navLogout = () => {
@@ -14,6 +14,7 @@ const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle 
     //  setState({userInfo: null})
     logout()
      history.push('/login')
+     handleLogout();
  }
 
 

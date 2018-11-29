@@ -7,6 +7,20 @@ Cooking for Millenials
 
 THOUGHTS:
 
+
+For skateboard just do normal form with create and show.
+
+Stop trying to be fancy with wizard form and worry about mobile friendlyness
+
+
+First get redux to work with the form and add extra fields. etc.
+
+
+
+
+
+
+
 #1 priority easy viewing on mobile!!!
 
 Show page > create page 
