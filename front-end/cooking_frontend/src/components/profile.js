@@ -4,7 +4,6 @@ import { Container, Card, Divider, Segment, Button, Modal, Header, Image, Icon }
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import MyRecipeList from '../containers/MyRecipeList'
-import RecipeForm from '../containers/RecipeForm/RecipeForm'
 import WizardForm from "../containers/RecipeForm/WizardForm";
 
 /* props: {
@@ -35,10 +34,10 @@ const Profile = ({userInfo}) => {
 
 <Modal trigger={<Button primary>Create New Recipe</Button>}>
     <Modal.Header>New Recipe</Modal.Header>
-    <Modal.Content>
+    <Modal.Content scrolling>
      
       <Modal.Description>
-        <WizardForm />
+        <WizardForm handleSubmit={() => {console.log("submitted")}}/>
       </Modal.Description>
     </Modal.Content>
    

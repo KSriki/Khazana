@@ -1,19 +1,39 @@
 const validate = values => {
     const errors = {}
     if (!values.title) {
-      errors.title = 'Required'
+        errors.title = 'Required'
     }
     if (!values.category) {
-      errors.category = 'Required'
+        errors.category = 'Required'
     }
 
     if (!values.time) {
         errors.time = 'Required'
-      }
-      if (!values.description) {
+    }
+    if (!values.description) {
         errors.description = 'Required'
-      }
+    }
 
+   
+
+    if (values.ingredients && values.ingredients.length > 0) {
+        errors.ingredient = []
+        values.ingredients.forEach((ingredient) => {
+            
+            let err = {}
+            if (!ingredient.name) {
+
+               err.name = "Required"
+            }
+
+            if (!ingredient.pyramid) {
+               err.pyramid = "Required"
+            }
+            errors.ingredient.push(err);
+
+        })
+    }
+    console.log(values)
 
     // if (!values.email) {
     //   errors.email = 'Required'
@@ -27,9 +47,9 @@ const validate = values => {
     //   errors.favoriteColor = 'Required'
     // }
     return errors
-  }
-  
-  export default validate
+}
+
+export default validate
 
 
 //   "title": "Peanut Butter Jelly Sandwich",
