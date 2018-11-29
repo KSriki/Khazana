@@ -3,8 +3,8 @@ import { Container, Card, Divider, Segment, Button, Modal, Header, Image, Icon }
 
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import MyRecipeList from '../containers/MyRecipeList'
-import WizardForm from "../containers/RecipeForm/WizardForm";
+import MyRecipeList from './MyRecipeList'
+import WizardForm from "../RecipeForm/WizardForm";
 
 /* props: {
   avatar: 'someURL',

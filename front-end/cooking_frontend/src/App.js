@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router
 import { connect } from 'react-redux';
 
 import LoginForm from './components/loginForm';
-import Profile from './components/profile';
+import Profile from './Profile/profile';
 import './App.css';
 import Nav from './navigation/nav';
 import NotFound from './components/notFound';
 
 import { fetchUser, fetchRecipes } from './redux/actions';
-import RecipeCatalog from './containers/RecipeCatalog';
+import RecipeCatalog from './containers/RecipeCatalog/RecipeCatalog';
 import {  Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
 class App extends Component {

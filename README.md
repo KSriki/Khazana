@@ -7,6 +7,24 @@ Cooking for Millenials
 
 THOUGHTS:
 
+#1 priority easy viewing on mobile!!!
+
+Show page > create page 
+
+
+
+Question:
+Serialize the recipes with sideloading so that everything loads initially
+or fetch based on recipe stubs ?
+
+Less fetches the better...
+
+So fetch recipe and sideload recipe-steps
+
+grab step-ingredients and ingredients on show page load ?
+
+
+
 Question:
 Could filter myRecipes from all recipes in the mapStateToProps instead of maintaining in redux state. BUT:
 
