@@ -17,10 +17,16 @@ class RecipesController < ApplicationController
     def show
         rec_id = params[:id].to_i
         recipe = Recipe.find(rec_id)
+        # find user name for recipe
+        
+        username = recipe.user.username;
+
 
         recipe_steps = recipe.recipe_steps
         # one to one step ingredients to ingredients when coming from recipe-steps
         
+    
+  
     
         # byebug
         step_ingredients = recipe_steps.map{ |rs| 
@@ -39,14 +45,14 @@ class RecipesController < ApplicationController
         
             
      
-        render json: {recipe: recipe, recipe_steps: step_ingredients }, status: :accepted
+        render json: {username: username, recipe: recipe, recipe_steps: step_ingredients }, status: :accepted
     end
 
   
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :time, :category, :description)
+        params.require(:recipe).permit(:title, :time, :category, :description, :thumbnail)
     end
 
 end

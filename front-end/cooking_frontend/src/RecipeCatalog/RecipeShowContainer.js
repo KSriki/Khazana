@@ -12,6 +12,7 @@ import {
     fetchRecipes
 } from "../redux/actions";
 import RecipeCard from "../components/RecipeCard"
+import RecipeGeneral from './RecipeGeneral';
 
 
 
@@ -27,7 +28,7 @@ class RecipeShowContainer extends Component {
     }
 
     componentDidMount() {
-     
+
         let token = localStorage.getItem('token')
         fetch(`http://localhost:3000/recipes/${this.props.match.params.id}`, {
                 headers: {
@@ -35,7 +36,9 @@ class RecipeShowContainer extends Component {
                 }
             }).then(res => res.json())
             .then(json => {
-                this.setState({recipe: json})
+                this.setState({
+                    recipe: json
+                })
 
             })
     }
@@ -45,7 +48,11 @@ class RecipeShowContainer extends Component {
 
 
 
-        return ( <div> Recipe Show page </div>)
+        return ( <Fragment>
+        
+            <RecipeGeneral recipe={this.state.recipe.recipe} author={this.state.recipe.username}/>
+        
+         </Fragment>)
         }
 
 
