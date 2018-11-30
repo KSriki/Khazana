@@ -19,7 +19,7 @@ ingredient3 = Ingredient.create(name:"Jelly", pyramid: "Carbs")
 recipe_step1 = RecipeStep.create(recipe_id: recipe1.id, step_num: 1, instruction: "Take 2 slices of bread and toast them")
 recipe_step2 = RecipeStep.create(recipe_id: recipe1.id, step_num: 2, instruction: "Using a knife, spread peanut butter on one side of one of the toasts")
 recipe_step3 = RecipeStep.create(recipe_id: recipe1.id, step_num: 3, instruction: "Using a knife, spread jelly on one side of the other toast")
-recipe_step3 = RecipeStep.create(recipe_id: recipe1.id, step_num: 4, instruction: "Place pieces of bread on top of each other with spread sides facing each other")
+recipe_step4 = RecipeStep.create(recipe_id: recipe1.id, step_num: 4, instruction: "Place pieces of bread on top of each other with spread sides facing each other")
 
 #maybe limiting number as last step ? To Prevent infinite steps  and looping ?
 

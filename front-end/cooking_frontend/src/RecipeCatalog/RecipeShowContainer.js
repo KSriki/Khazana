@@ -14,6 +14,8 @@ import {
 import RecipeCard from "../components/RecipeCard"
 import RecipeGeneral from './RecipeGeneral';
 
+import RecipeSlideShow from './RecipeSlideShow';
+
 
 
 class RecipeShowContainer extends Component {
@@ -45,12 +47,11 @@ class RecipeShowContainer extends Component {
 
 
     render() {
-
-
+      
         return ( <Fragment>
 
             <RecipeGeneral recipe={this.state.recipe.recipe} ingredients={this.state.recipe.ingredients} author={this.state.recipe.username}/>
-       
+            <RecipeSlideShow recipe_steps={this.state.recipe.recipe_steps}/>
          </Fragment>)
         }
 
