@@ -21,11 +21,13 @@ class RecipesController < ApplicationController
         
         username = recipe.user.username;
 
+        # get all ingredients from step ingredients ?
+        ingredients = []
 
         recipe_steps = recipe.recipe_steps
         # one to one step ingredients to ingredients when coming from recipe-steps
         
-    
+        # recipe ingredients
   
     
         # byebug
@@ -41,11 +43,23 @@ class RecipesController < ApplicationController
             }
             
         }
+
         
+        step_ingredients.each do |si|
+             
+            ings = si[:step_ingredients]
+            ings.each do |ing|
+                ing_total = ing[:amount] + " " + ing[:ingredient][:name] + " [" + ing[:ingredient][:pyramid] + "]"
+                if !ingredients.include?(ing_total)
+                    ingredients.push(ing_total)   
+                end
+
+            end
+        end
         
-            
+    
      
-        render json: {username: username, recipe: recipe, recipe_steps: step_ingredients }, status: :accepted
+        render json: {username: username, recipe: recipe, ingredients: ingredients, recipe_steps: step_ingredients }, status: :accepted
     end
 
   

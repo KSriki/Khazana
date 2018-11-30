@@ -13,6 +13,7 @@ import {
 import { Image, Item } from 'semantic-ui-react'
 
 
+import RecipeIngredients from './RecipeIngredients';
 
 //dont user redux state, use fetched state due to changes that may be occuring?
 //may lag?
@@ -35,9 +36,11 @@ class RecipeGeneral extends Component {
                 <Item.Header as='a'>{rec.title}</Item.Header>
                 <Item.Meta>Description:</Item.Meta>
                 <Item.Description>
-                  <p>Author {this.props.author}</p>
-                  <p>{rec.description}</p>
+                  <p>Author: {this.props.author}</p>
                   <p>Time Required: {rec.time}</p>
+                <RecipeIngredients ingredients={this.props.ingredients}/>
+                <br />
+                <p>{rec.description}</p>
                 </Item.Description>
                 <Item.Extra>Tags: {rec.category}</Item.Extra>
               </Item.Content>

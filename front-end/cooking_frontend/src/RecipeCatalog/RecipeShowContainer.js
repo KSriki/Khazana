@@ -47,11 +47,10 @@ class RecipeShowContainer extends Component {
     render() {
 
 
-
         return ( <Fragment>
-        
-            <RecipeGeneral recipe={this.state.recipe.recipe} author={this.state.recipe.username}/>
-        
+
+            <RecipeGeneral recipe={this.state.recipe.recipe} ingredients={this.state.recipe.ingredients} author={this.state.recipe.username}/>
+       
          </Fragment>)
         }
 
