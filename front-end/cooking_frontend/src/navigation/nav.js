@@ -15,10 +15,9 @@ const Nav = ({ location: { pathname }, userInfo, visible, logout, history, sideb
 
     logout()
      history.push('/login')
-     if(visible){
+     
       handleLogout();
-     }
-
+    
  }
 
 

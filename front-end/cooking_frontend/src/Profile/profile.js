@@ -11,7 +11,7 @@ import WizardForm from "../RecipeForm/WizardForm";
   username: 'chandler Bing',
   email: 'sk@email.com'
 } */
-const Profile = ({userInfo}) => {
+const Profile = ({userInfo, handleCreate}) => {
    
     return userInfo ? (
     <Container>
@@ -32,16 +32,10 @@ const Profile = ({userInfo}) => {
 
      
 
-<Modal trigger={<Button primary>Create New Recipe</Button>}>
-    <Modal.Header>New Recipe</Modal.Header>
-    <Modal.Content scrolling>
-     
-      <Modal.Description>
-        <WizardForm handleSubmit={() => {console.log("submitted")}}/>
-      </Modal.Description>
-    </Modal.Content>
+      <Button primary onClick ={handleCreate}>Create New Recipe</Button>
    
-  </Modal>
+      
+     
 
 
 

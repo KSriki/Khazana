@@ -10,6 +10,9 @@ import Profile from './Profile/profile';
 import './App.css';
 import Nav from './navigation/nav';
 import NotFound from './components/notFound';
+import WizardForm from './RecipeForm/WizardForm';
+
+
 
 import { fetchUser, fetchRecipes } from './redux/actions';
 import RecipeCatalog from './RecipeCatalog/RecipeCatalog';
@@ -42,8 +45,17 @@ class App extends Component {
   };
   handleLoginClick = () => {
 	this.props.history.push('/login');
+
 	this.handleClick();
 };
+
+handleCreateClick = () => {
+
+	this.props.history.push("/profile/create")
+	if(this.state.visible){
+		this.handleClick();
+	}
+}
 
 	componentDidMount() {
 		this.props.fetchUser();
@@ -56,7 +68,7 @@ class App extends Component {
 		return (
 			<div style={{ height: '100vh' }}>
 			
-						<Nav sidebarToggle={this.handleClick} visible={this.state.visible} handleLogout={this.handleClick}/>
+						<Nav sidebarToggle={this.handleClick} visible={this.state.visible} handleLogout={() => {if(this.state.visible) { this.handleClick() } }}/>
 
         
 				<Sidebar.Pushable as={Segment}>
@@ -89,7 +101,8 @@ class App extends Component {
 								<Route exact path="/" render={RecipeCatalog} />
 								<Route path = "/recipes/:id" render={RecipeShowContainer} />>
 								<Route exact path="/login" render={() => <LoginForm />} />
-								<Route exact path="/profile" render={() => <Profile />} />
+								<Route exact path="/profile/create" render ={() =>   <WizardForm handleSubmit={() => {console.log("submitted")}}/>} />
+								<Route exact path="/profile" render={() => <Profile handleCreate={this.handleCreateClick}/>} />
 								<Route component={NotFound} />
 							</Switch>
 						</Segment>

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import WizardFormFirstPage from './WizardFormFirstPage'
 import WizardFormSecondPage from './WizardFormSecondPage'
 import WizardFormThirdPage from './WizardFormThirdPage'
+import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 class WizardForm extends Component {
   constructor(props) {
@@ -24,7 +26,10 @@ class WizardForm extends Component {
   render() {
     const { onSubmit } = this.props
     const { page } = this.state
-    return (
+
+    
+    return this.props.userInfo ?
+     (
       <div>
         {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
         {page === 2 && (
@@ -41,6 +46,7 @@ class WizardForm extends Component {
         )} */}
       </div>
     )
+    : <Redirect to="/login" />;
   }
 }
 
@@ -48,4 +54,10 @@ WizardForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
-export default WizardForm
+const mapStateToProps = (state) => {
+  return {
+		userInfo: state.recipes.userInfo,
+	};
+}
+
+export default withRouter(connect(mapStateToProps,null)(WizardForm))
