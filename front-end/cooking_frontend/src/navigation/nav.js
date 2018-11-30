@@ -5,23 +5,27 @@ import { Header, Button, Menu, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { loadProfile, logout } from "../redux/actions";
 
-const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle, handleLogout }) => {
+const Nav = ({ location: { pathname }, userInfo, visible, logout, history, sidebarToggle, handleLogout }) => {
 
 
   const navLogout = () => {
     console.log("logging out")
      localStorage.clear()
     //  setState({userInfo: null})
+
     logout()
      history.push('/login')
-     handleLogout();
+     if(visible){
+      handleLogout();
+     }
+
  }
 
 
   return (
  
     <Menu>
-      {!!userInfo ? (
+      
         <Fragment>
         
           <Menu.Item
@@ -32,19 +36,13 @@ const Nav = ({ location: { pathname }, userInfo, logout, history, sidebarToggle,
           </Menu.Item>
           
          
-
+          {!!userInfo ? 
           <Menu.Menu position="right">
             <Menu.Item to="/logout" name="Logout" onClick={navLogout} />
           </Menu.Menu>
+          : null}
         </Fragment>
-      ) : (
-        <Menu.Item
-          as={NavLink}
-          to="/login"
-          name="Login"
-          active={pathname === "/login"}
-        />
-      )}
+    
      
     </Menu>
   );

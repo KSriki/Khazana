@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router
 // import Profile from './components/profile'
 import { connect } from 'react-redux';
 
+
+
 import LoginForm from './components/loginForm';
 import Profile from './Profile/profile';
 import './App.css';
@@ -38,6 +40,10 @@ class App extends Component {
 		this.props.history.push('/profile');
 		this.handleClick();
   };
+  handleLoginClick = () => {
+	this.props.history.push('/login');
+	this.handleClick();
+};
 
 	componentDidMount() {
 		this.props.fetchUser();
@@ -50,7 +56,7 @@ class App extends Component {
 		return (
 			<div style={{ height: '100vh' }}>
 			
-						<Nav sidebarToggle={this.handleClick} handleLogout={this.handleClick}/>
+						<Nav sidebarToggle={this.handleClick} visible={this.state.visible} handleLogout={this.handleClick}/>
 
         
 				<Sidebar.Pushable as={Segment}>
@@ -70,7 +76,10 @@ class App extends Component {
             {this.props.userInfo ? <Menu.Item as="a" onClick={this.handleProfileClick}>
 							<Icon name="user" />
 							Profile
-						</Menu.Item> : null}
+						</Menu.Item> : <Menu.Item
+          as="a"
+          onClick={this.handleLoginClick}
+        > Login </Menu.Item>   }
             
 					</Sidebar>
 
