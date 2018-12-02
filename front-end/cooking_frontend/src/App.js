@@ -10,7 +10,9 @@ import Profile from './Profile/profile';
 import './App.css';
 import Nav from './navigation/nav';
 import NotFound from './components/notFound';
-import WizardForm from './RecipeForm/WizardForm';
+
+
+// import WizardForm from './RecipeForm/WizardForm';
 
 
 
@@ -18,6 +20,7 @@ import { fetchUser, fetchRecipes } from './redux/actions';
 import RecipeCatalog from './RecipeCatalog/RecipeCatalog';
 import RecipeShowContainer from './RecipeCatalog/RecipeShowContainer';
 import {  Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
+import WizardForm from './RecipeForm/WizardForm';
 
 class App extends Component {
 	constructor() {
@@ -62,6 +65,12 @@ handleCreateClick = () => {
 		this.props.fetchRecipes();
 	}
 
+
+	handleSubmitNewRecipe = values => {
+		// print the form values to the console
+		console.log(values)
+	}
+
 	handleContextRef = contextRef => this.setState({ contextRef });
 
 	render() {
@@ -101,7 +110,7 @@ handleCreateClick = () => {
 								<Route exact path="/" render={RecipeCatalog} />
 								<Route path = "/recipes/:id" render={RecipeShowContainer} />>
 								<Route exact path="/login" render={() => <LoginForm />} />
-								<Route exact path="/profile/create" render ={() =>   <WizardForm handleSubmit={() => {console.log("submitted")}}/>} />
+								<Route exact path="/profile/create" render ={() =>   <WizardForm handleSubmit={this.handleSubmitNewRecipe} />} />
 								<Route exact path="/profile" render={() => <Profile handleCreate={this.handleCreateClick}/>} />
 								<Route component={NotFound} />
 							</Switch>
