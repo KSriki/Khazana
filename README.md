@@ -8,6 +8,17 @@ Cooking for Millenials
 THOUGHTS:
 
 
+
+Mistakes:
+
+Time length: 2 weeks.
+
+I kept refactoring thinking ahead of time for the future.
+
+
+
+
+
 For skateboard just do normal form with create and show.
 
 Stop trying to be fancy with wizard form and worry about mobile friendlyness

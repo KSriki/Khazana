@@ -23,10 +23,23 @@ const renderColorSelector = ({ input, meta: { touched, error } }) => (
 class WizardFormThirdPage extends Component {
 
   render(){
-  debugger;
-  const { handleSubmit, pristine, previousPage, submitting } = this.props
+
+  // const { handleSubmit, pristine, previousPage, submitting } = this.props
+
+  // step_num": 1,
+  // "step_image": null,
+  // "instruction": "Take 2 slices of bread and toast them",
+  // "step_ingredients": [
+  // {
+  // "amount": "2 slices",
+  // "ingredient": {
+  // "name": "Bread",
+  // "pyramid": "Carbs"
+  // }
+  // }
+  // ]
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={this.props.handleSubmit}>
       <div>
         <label>Favorite Color</label>
         <Field name="favoriteColor" component={renderColorSelector} />
@@ -49,10 +62,10 @@ class WizardFormThirdPage extends Component {
         </div>
       </div>
       <div>
-        <button type="button" className="previous" onClick={previousPage}>
+        <button type="button" className="previous" onClick={this.props.previousPage}>
           Previous
         </button>
-        <button type="submit" disabled={pristine || submitting}>
+        <button type="submit">
           Submit
         </button>
       </div>
