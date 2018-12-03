@@ -5,16 +5,46 @@ Khazana by Srikant Kumar Kalaputapu
 Alternative Name: 
 Cooking for Millenials
 
+
+Time length: 2 weeks.
+
 THOUGHTS:
 
+Big mistake: 
+
+User-perspective vs Tech-perspective
+
+Original Problem im trying to solve:
+users: easy to create recipe
+BUT hard to read on mobile when in the kitchen.
+
+The real problem i was trying to solve was the above. But instead i made it harder for users
+to create recipes.
 
 
 Mistakes:
 
-Time length: 2 weeks.
 
-I kept refactoring thinking ahead of time for the future.
+Freaking forgot about normal react and lifecycle methods when trying to make the redux form
 
+React will see fields update on addition of ingredients from the previous page (page2 -> page3)
+So 
+
+
+I kept refactoring thinking ahead of time for the future. Add images. How is the recipe going to look like? Now i have to change the way i serialize the data. The skateboard is the most important thing. Thinking ahead is a great thing but with the time limit its useless overthinking.
+
+
+This is a common theme in learning. Try your hardest and focus on the work at hand not anything else.
+
+This comes with practice.
+
+The point of this project was to learn redux and learn how to manage my time. I learned that things take longer than planned for good work. To just do work its no big deal.
+
+Learning lessons:
+
+I tried to do all of the form front end and then all of the back end.
+
+Build vertically. I got cocky and thought i was on pace but then these issues came up.
 
 
 

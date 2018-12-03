@@ -1,24 +1,75 @@
+
 import React, {Component} from 'react'
-
-import { connect } from 'react-redux'
-
-import { Field, reduxForm } from 'redux-form'
+import { Field, FieldArray, FormSection, reduxForm } from 'redux-form'
 import validate from './validate'
-const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
+import renderField from './renderField'
+import {Header, Form, Button, Icon, Divider,List } from 'semantic-ui-react'
+import { connect } from 'react-redux';
+const renderError = ({ meta: { touched, error } }) =>
+  touched && error ? <span>{error}</span> : false
 
-const renderColorSelector = ({ input, meta: { touched, error } }) => (
-  <div>
-    <select {...input}>
-      <option value="">Select a color...</option>
-      {colors.map(val => (
-        <option value={val} key={val}>
-          {val}
-        </option>
-      ))}
-    </select>
-    {touched && error && <span>{error}</span>}
-  </div>
-)
+  
+  const renderCheckbox = ({ input, label, type, meta: { touched, error } }) => (
+      
+      <div>
+      <label>{label}</label> <input {...input} placeholder={label} type={type} />
+        {touched && error && <span>{error}</span>}
+      </div>
+  
+  )
+  
+
+  const renderSteps = ({ fields, ingredients, meta: { touched, error } }) => (
+    <div>
+      {ingredients ? console.log(ingredients) : null}
+
+      <div>
+        <Button positive type="button" onClick={() => fields.push({})}>Add Step</Button>
+      </div>
+      <List>
+      {fields.map((step, index) =>
+        <List.Item><div key={index}>
+          
+          <Field
+            name={`${step + index}.instruction`}
+            type="text"
+            component={renderField}
+            label={`Instruction ${index+1}`}/>
+          <FormSection>
+          <h4> Ingredients used during step: </h4>
+
+        { 
+          
+          ingredients ? ingredients.map((ingredient, idx) => {
+      
+          const name = `${step + index}.step_ingredients`
+            
+            const checkedField = `${step + index}.step_ingredients.${idx}`
+
+          return (
+              <Field
+                
+                key={idx}
+                name={`${name}.${idx} `}
+                type="checkbox"
+                component={renderCheckbox}
+                label={ingredient[idx].name}
+              />            
+          )
+        }) : null
+        
+        }
+      </FormSection>
+        </div>
+        {touched && error && <span>{error}</span>}
+        </List.Item>
+      )}
+      
+      </List>
+    </div>
+  )
+  
+  
 
 class WizardFormThirdPage extends Component {
 
@@ -38,29 +89,11 @@ class WizardFormThirdPage extends Component {
   // }
   // }
   // ]
+
   return (
     <form onSubmit={this.props.handleSubmit}>
-      <div>
-        <label>Favorite Color</label>
-        <Field name="favoriteColor" component={renderColorSelector} />
-      </div>
-      <div>
-        <label htmlFor="employed">Employed</label>
-        <div>
-          <Field
-            name="employed"
-            id="employed"
-            component="input"
-            type="checkbox"
-          />
-        </div>
-      </div>
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea" placeholder="Notes" />
-        </div>
-      </div>
+          <FieldArray name="steps" component={renderSteps} ingredients={this.props.ingredients}/>
+          <Divider section />
       <div>
         <button type="button" className="previous" onClick={this.props.previousPage}>
           Previous
