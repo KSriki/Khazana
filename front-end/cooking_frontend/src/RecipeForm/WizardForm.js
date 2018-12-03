@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // import WizardFormFirstPage from './WizardFormFirstPage'
-// import WizardFormSecondPage from './WizardFormSecondPage'
+import WizardFormSecondPage from './WizardFormSecondPage'
 // import WizardFormThirdPage from './WizardFormThirdPage'
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
@@ -9,18 +9,44 @@ import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router
 import { Field, reduxForm } from 'redux-form'
 import { Form, Input, TextArea, Button } from 'semantic-ui-react'
 import formDescription from './renderDescription';
+import FieldArray from 'redux-form/lib/FieldArray';
+import formIngredients from './renderIngredients';
 
 
 //
 
 //need to check if user is logged in before coming to the page.
 
-let WizardForm = props => {
-  const handleSubmit = props.handleSubmit;
-  const user = props.userInfo;
+class WizardForm extends Component {
+
+  constructor(props) {
+        super(props)
+        this.nextPage = this.nextPage.bind(this)
+        this.previousPage = this.previousPage.bind(this)
+        this.state = {
+          page: 1
+        }
+  }
+  nextPage() {
+    this.setState({ page: this.state.page + 1 })
+  }
+
+  previousPage() {
+    this.setState({ page: this.state.page - 1 })
+  }
+    
+
+  render(){
+  const handleSubmit = this.props.handleSubmit;
+  const user = this.props.userInfo;
+
+  
+   const page = this.state.page
 
   return user ? (
-    <form onSubmit={handleSubmit}>
+
+    page === 1 ? 
+    (<form onSubmit={this.nextPage}>
       <div>
         <label htmlFor="title">Title</label>
         <Field name="title" component="input" type="text" />
@@ -36,9 +62,18 @@ let WizardForm = props => {
         <label htmlFor="category">Category</label>
         <Field name="category" component="input" type="text" />
       </div>
+      <div>
+        <FieldArray name="ingredients" component={formIngredients} />
+      </div>
       <button type="submit">Submit</button>
-    </form>
+    </form>)
+    : <WizardFormSecondPage
+                previousPage={this.previousPage}
+                onSubmit={handleSubmit}
+              />
+
   ) : <Redirect to="/login" />
+  }
 }
 
 

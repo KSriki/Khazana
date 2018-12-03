@@ -67,7 +67,7 @@ const renderError = ({ meta: { touched, error } }) =>
 
 
 export default reduxForm({
-  form: 'wizard', //Form name is same
+  form: 'create_recipe', //Form name is same
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate
