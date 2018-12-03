@@ -25,10 +25,10 @@ const renderError = ({ meta: { touched, error } }) =>
             component={renderField}
             label="Name of Ingredient"/>
           <Field
-            name={`${ingred + index}.pyramid`}
+            name={`${ingred + index}.amount`}
             type="text"
             component={renderField}
-            label="Which part of the Food Pyramid?"/>
+            label="Amount?"/>
   <Button
             type="button"
             title="Remove Ingredient"
@@ -67,7 +67,7 @@ const renderError = ({ meta: { touched, error } }) =>
 
 
 export default reduxForm({
-  form: 'wizard', //Form name is same
+  form: 'create_recipe', //Form name is same
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate

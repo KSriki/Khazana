@@ -1,4 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
+
+import { connect } from 'react-redux'
+
 import { Field, reduxForm } from 'redux-form'
 import validate from './validate'
 const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
@@ -17,8 +20,11 @@ const renderColorSelector = ({ input, meta: { touched, error } }) => (
   </div>
 )
 
-const WizardFormThirdPage = props => {
-  const { handleSubmit, pristine, previousPage, submitting } = props
+class WizardFormThirdPage extends Component {
+
+  render(){
+  debugger;
+  const { handleSubmit, pristine, previousPage, submitting } = this.props
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -52,9 +58,21 @@ const WizardFormThirdPage = props => {
       </div>
     </form>
   )
+  }
 }
+
+
+const mapStateToProps = state => {
+  return {
+    ingredients: state.form.create_recipe.values.ingredients
+  }
+}
+
+WizardFormThirdPage = connect(mapStateToProps,null)(WizardFormThirdPage)
+
+
 export default reduxForm({
-  form: 'wizard', //Form name is same
+  form: 'create_recipe', //Form name is same
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate

@@ -35,15 +35,15 @@ class WizardForm extends Component {
         {page === 2 && (
           <WizardFormSecondPage
             previousPage={this.previousPage}
-            onSubmit={this.props.handleSubmit}
+            onSubmit={this.nextPage}
           />
         )}
-        {/* {page === 3 && (
+        {page === 3 && (
           <WizardFormThirdPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />
-        )} */}
+        )}
       </div>
     )
     : <Redirect to="/login" />;
