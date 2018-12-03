@@ -5,7 +5,7 @@ import { Header, Button, Menu, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { loadProfile, logout } from "../redux/actions";
 
-const Nav = ({ location: { pathname }, userInfo, visible, logout, history, sidebarToggle, handleLogout }) => {
+const Nav = ({ location: { pathname }, userInfo, visible, logout, history, sidebarToggle, handleLogout, handleHomeClick }) => {
 
 
   const navLogout = () => {
@@ -32,9 +32,10 @@ const Nav = ({ location: { pathname }, userInfo, visible, logout, history, sideb
             onClick={sidebarToggle}
           >
          <Icon className="bars" />
-          </Menu.Item>
-          
-         
+						</Menu.Item>
+            <Menu.Item header onClick={handleHomeClick}>
+							Khazana
+              </Menu.Item>
           {!!userInfo ? 
           <Menu.Menu position="right">
             <Menu.Item to="/logout" name="Logout" onClick={navLogout} />

@@ -4,7 +4,7 @@ import { Container, Card, Divider, Segment, Button, Modal, Header, Image, Icon }
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import MyRecipeList from './MyRecipeList'
-import WizardForm from "../RecipeForm/WizardForm";
+import WizardForm from "../RecipeForm/WizardForm/WizardForm";
 
 /* props: {
   avatar: 'someURL',
@@ -34,7 +34,7 @@ const Profile = ({userInfo, handleCreate}) => {
 
       <Button primary onClick ={handleCreate}>Create New Recipe</Button>
    
-      
+      <Divider section />
      
 
 
@@ -42,7 +42,7 @@ const Profile = ({userInfo, handleCreate}) => {
 
 
     
-
+      <Header as="h3">My Recipes</Header>
       <MyRecipeList />
       
 

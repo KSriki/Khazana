@@ -10,7 +10,7 @@ import Profile from './Profile/profile';
 import './App.css';
 import Nav from './navigation/nav';
 import NotFound from './components/notFound';
-import WizardForm from './RecipeForm/WizardForm';
+import WizardForm from './RecipeForm/WizardForm/WizardForm';
 
 
 
@@ -37,7 +37,9 @@ class App extends Component {
 
 	handleHomeClick = () => {
 		this.props.history.push('/');
-		this.handleClick();
+		if(this.state.visible){
+			this.handleClick();
+		}
   };
   handleProfileClick = () => {
 		this.props.history.push('/profile');
@@ -68,7 +70,7 @@ handleCreateClick = () => {
 		return (
 			<div style={{ height: '100vh' }}>
 			
-						<Nav sidebarToggle={this.handleClick} visible={this.state.visible} handleLogout={() => {if(this.state.visible) { this.handleClick() } }}/>
+						<Nav sidebarToggle={this.handleClick} visible={this.state.visible} handleHomeClick={this.handleHomeClick} handleLogout={() => {if(this.state.visible) { this.handleClick() } }}/>
 
         
 				<Sidebar.Pushable as={Segment}>
@@ -81,10 +83,7 @@ handleCreateClick = () => {
 						visible={this.state.visible}
 						width="thin"
 					>
-						<Menu.Item as="a" onClick={this.handleHomeClick}>
-							<Icon name="home" />
-							Home
-						</Menu.Item>
+						
             {this.props.userInfo ? <Menu.Item as="a" onClick={this.handleProfileClick}>
 							<Icon name="user" />
 							Profile
