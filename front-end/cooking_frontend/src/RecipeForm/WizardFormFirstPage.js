@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
 import {Header, Form, Button, Icon, Divider } from 'semantic-ui-react'
+import formDescription from './renderDescription';
 
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
@@ -30,7 +31,7 @@ const WizardFormFirstPage = props => {
       <Field
         name="description"
         type="text"
-        component={renderField}
+        component={formDescription}
         label="Description"
       />
       <Divider section />
