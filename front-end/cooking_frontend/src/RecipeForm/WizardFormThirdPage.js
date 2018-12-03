@@ -21,8 +21,7 @@ const renderError = ({ meta: { touched, error } }) =>
 
   const renderSteps = ({ fields, ingredients, meta: { touched, error } }) => (
     <div>
-      {ingredients ? console.log(ingredients) : null}
-
+    
       <div>
         <Button positive type="button" onClick={() => fields.push({})}>Add Step</Button>
       </div>
@@ -31,7 +30,7 @@ const renderError = ({ meta: { touched, error } }) =>
         <List.Item><div key={index}>
           
           <Field
-            name={`${step + index}.instruction`}
+            name={`${step}.instruction`}
             type="text"
             component={renderField}
             label={`Instruction ${index+1}`}/>
@@ -42,15 +41,15 @@ const renderError = ({ meta: { touched, error } }) =>
           
           ingredients ? ingredients.map((ingredient, idx) => {
       
-          const name = `${step + index}.step_ingredients`
+          const name = `${step}.step_ingredients`
             
             const checkedField = `${step + index}.step_ingredients.${idx}`
 
           return (
               <Field
-                
+                onChange={e => {console.log(e.currentTarget);}}
                 key={idx}
-                name={`${name}.${idx} `}
+                name={`${name}.${ingredient[idx].name}`}
                 type="checkbox"
                 component={renderCheckbox}
                 label={ingredient[idx].name}
