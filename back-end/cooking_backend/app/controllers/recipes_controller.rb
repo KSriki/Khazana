@@ -13,12 +13,37 @@ class RecipesController < ApplicationController
         
         create_recipe = params["create_recipe"]
         @recipe = Recipe.create(title: create_recipe["title"], time: create_recipe["time"], category: create_recipe["category"], description: create_recipe["description"], user_id: user_id)
-        byebug
+     
         ingredients = create_recipe["ingredients"]
 
         step_ingredients = []
 
         create_recipe["steps"].each_with_index do |step, index|
+         
+            # 
+            inst = step["instruction"]
+
+            s_ings = step["step_ingredients"]
+
+            recstep = RecipeStep.create(recipe_id: @recipe.id, step_num: index, instruction: inst, image: "" )
+
+              step_ingredients = step["step_ingredients"]
+
+              step_ingredients.each_with_index do |si, index|
+                    ing_name = si.keys()[0] 
+                    ing_amount = si["amount"]
+                    # byebug
+                    found = Ingredient.find_by(name: ing_name)
+                    if found
+                        si = StepIngredient.create(amount: ing_amount, recipe_step_id: recstep.id, ingredient_id: found.id)
+                    else 
+                        # make new ingredient  
+                        new_ing = Ingredient.create(name: ing_name)
+                        si = StepIngredient.create(amount: ing_amount, recipe_step_id: recstep.id, ingredient_id: new_ing.id)
+                    end
+              end
+
+            
             
 
         end
@@ -41,8 +66,9 @@ class RecipesController < ApplicationController
         #         new_ings.push()
         #     end
         # end
+        parse_recipe(@recipe.id)
 
-        render json: { recipe: Recipe.new(@recipe) }, status: :created
+        # render json: { recipe: Recipe.new(@recipe) }, status: :created
     end
 
 
@@ -98,11 +124,62 @@ class RecipesController < ApplicationController
         render json: {username: username, recipe: recipe, ingredients: ingredients, recipe_steps: step_ingredients }, status: :accepted
     end
 
+
+
   
     private
 
     #  another params for create recipe?
     
+    def parse_recipe(id)
+        rec_id = id
+        recipe = Recipe.find(rec_id)
+        # find user name for recipe
+        
+        username = recipe.user.username;
+
+        # get all ingredients from step ingredients ?
+        ingredients = []
+
+        recipe_steps = recipe.recipe_steps
+        # one to one step ingredients to ingredients when coming from recipe-steps
+        
+        # recipe ingredients
+  
+    
+        # byebug
+        step_ingredients = recipe_steps.map{ |rs| 
+            {       
+                    step_num: rs.step_num,
+                    step_image: rs.image,
+                    instruction: rs.instruction,
+                    step_ingredients: rs.step_ingredients.map{ |si| 
+                        {amount: si.amount, ingredient: {name: si.ingredient.name} }
+                    } 
+                
+            }
+            
+        }
+
+        
+        step_ingredients.each do |si|
+             
+            ings = si[:step_ingredients]
+            ings.each do |ing|
+                ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
+                if !ingredients.include?(ing_total)
+                    ingredients.push(ing_total)   
+                end
+
+            end
+        end
+        
+        # fix time to string
+     
+        render json: {username: username, recipe: recipe, ingredients: ingredients, recipe_steps: step_ingredients }, status: :accepted
+
+    end
+
     def recipe_params
         params.require(:recipe).permit(:title, :time, :category, :description, :thumbnail)
     end

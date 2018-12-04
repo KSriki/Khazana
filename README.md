@@ -6,6 +6,12 @@ Alternative Name:
 Cooking for Millenials
 
 
+Realized that i should only add ingredients if added with steps. otherwise its hard to link up the
+ingredient id to the step_ingredient
+
+
+
+
 Time length: 2 weeks.
 
 THOUGHTS:

@@ -94,9 +94,9 @@ export function fetchCreateRecipe(create_recipe){
             // fetchUser()
                 debugger;
 
-                dispatch({ type:  "CREATE_NEW_RECIPE" });
+                dispatch({ type:  "CREATE_NEW_RECIPE", newRecipe: json });
             //just add to the already logged in userInfo and allrecipes
-        }, json=> {console.log(json)})
+        })
     }
 }
 
