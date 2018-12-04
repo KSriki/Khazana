@@ -5,9 +5,26 @@ class RecipesController < ApplicationController
         render json: Recipe.all
     end
 
-    def create
 
-        @recipe = Recipe.create(recipe_params)
+    def create
+        token = request.headers["Authorization"].split(' ')[1]
+        payload = decode(token)
+        user_id = payload["user_id"]
+        
+    
+        create_recipe = params["create_recipe"]
+        @recipe = Recipe.create(title: create_recipe["title"], time: create_recipe["time"], category: create_recipe["category"], description: create_recipe["description"], user_id: user_id)
+        byebug
+       
+        ingredients.each_with_index do |ingred, index|
+            ing = ingred[index.to_s]
+            # amount and name - see if name is already in there
+            found = Ingredient.where(name: ing["name"])
+            if !found 
+                byebug
+            end
+        end
+
         render json: { recipe: Recipe.new(@recipe) }, status: :created
     end
 

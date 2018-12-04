@@ -72,6 +72,35 @@ export function fetchRecipes() {
         // failed to fetch catch dispatch action
 }
 
+
+export function fetchCreateRecipe(create_recipe){
+    debugger;
+    return (dispatch) => {
+        dispatch({ type: 'START_CREATE_RECIPES_FETCH_REQUEST' });
+        let token = localStorage.getItem('token')
+        fetch(`http://localhost:3000/recipes`,{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Authorization" : `Bearer ${token}`
+            },
+                //probably want to whitelist
+             body: JSON.stringify({create_recipe: create_recipe})
+        }).then(res => res.json())
+        .then(json => {
+            //really bad workflow
+            // fetchRecipes()
+            // fetchUser()
+                debugger;
+
+                dispatch({ type:  "CREATE_NEW_RECIPE" });
+            //just add to the already logged in userInfo and allrecipes
+        }, json=> {console.log(json)})
+    }
+}
+
+
 //only really needed for edit
 // export function fetchRecipe(id){
 //     return (dispatch) => {

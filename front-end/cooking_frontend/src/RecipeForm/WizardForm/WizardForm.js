@@ -24,7 +24,7 @@ class WizardForm extends Component {
   }
 
   render() {
-    const { onSubmit } = this.props
+ 
     const { page } = this.state
 
     
@@ -41,7 +41,7 @@ class WizardForm extends Component {
         {page === 3 && (
           <WizardFormThirdPage
             previousPage={this.previousPage}
-            onSubmit={onSubmit}
+            handleSubmit={this.props.handleSubmit}
           />
         )}
       </div>
@@ -51,7 +51,7 @@ class WizardForm extends Component {
 }
 
 WizardForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

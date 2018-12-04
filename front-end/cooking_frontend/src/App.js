@@ -14,7 +14,7 @@ import WizardForm from './RecipeForm/WizardForm/WizardForm';
 
 
 
-import { fetchUser, fetchRecipes } from './redux/actions';
+import { fetchUser, fetchRecipes, fetchCreateRecipe } from './redux/actions';
 import RecipeCatalog from './RecipeCatalog/RecipeCatalog';
 import RecipeShowContainer from './RecipeCatalog/RecipeShowContainer';
 import {  Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
@@ -66,6 +66,18 @@ handleCreateClick = () => {
 
 	handleContextRef = contextRef => this.setState({ contextRef });
 
+
+	handleSubmit = (event) => {
+		//check form from redux
+		//post here
+		event.preventDefault()
+		//go back to profile page or to the show page for that recipe
+		console.log(this.props.form.values)
+		
+		this.props.fetchCreateRecipe(this.props.form.values)
+
+	}
+
 	render() {
 		return (
 			<div style={{ height: '100vh' }}>
@@ -100,7 +112,7 @@ handleCreateClick = () => {
 								<Route exact path="/" render={RecipeCatalog} />
 								<Route path = "/recipes/:id" render={RecipeShowContainer} />>
 								<Route exact path="/login" render={() => <LoginForm />} />
-								<Route exact path="/profile/create" render ={() =>   <WizardForm handleSubmit={() => {console.log("submitted")}}/>} />
+								<Route exact path="/profile/create" render ={() =>   <WizardForm handleSubmit={this.handleSubmit}/>} />
 								<Route exact path="/profile" render={() => <Profile handleCreate={this.handleCreateClick}/>} />
 								<Route component={NotFound} />
 							</Switch>
@@ -121,12 +133,14 @@ const mapDispatchToProps = dispatch => {
 	return {
 		fetchUser: () => dispatch(fetchUser()),
 		fetchRecipes: () => dispatch(fetchRecipes()),
+		fetchCreateRecipe: (create_recipe) => dispatch(fetchCreateRecipe(create_recipe))
 	};
 };
 
 const mapStateToProps = state => {
 	return {
 		userInfo: state.recipes.userInfo,
+		form: state.form.create_recipe
 	};
 };
 

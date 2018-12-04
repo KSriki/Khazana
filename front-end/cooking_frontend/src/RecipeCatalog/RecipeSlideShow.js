@@ -44,8 +44,8 @@ class RecipeSlideShow extends React.Component {
     
     <SwipeableViews enableMouseEvents>
 
-        {this.props.recipe_steps ? this.props.recipe_steps.map(step => {return <div style={Object.assign({}, styles.slide, styles.slide1)}><RecipeSlide step={step} /></div>})
-        : null}
+        {this.props.recipe_steps && this.props.recipe_steps.length > 0 ? this.props.recipe_steps.map(step => {return <div style={Object.assign({}, styles.slide, styles.slide1)}><RecipeSlide step={step} /></div>})
+        : <div>No steps provided</div>}
 
     </SwipeableViews>
 

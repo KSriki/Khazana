@@ -94,12 +94,12 @@ class WizardFormThirdPage extends Component {
           <FieldArray name="steps" component={renderSteps} ingredients={this.props.ingredients}/>
           <Divider section />
       <div>
-        <button type="button" className="previous" onClick={this.props.previousPage}>
+        <Button primary type="button" className="previous" onClick={this.props.previousPage}>
           Previous
-        </button>
-        <button type="submit">
+        </Button>
+        <Button primary type="submit">
           Submit
-        </button>
+        </Button>
       </div>
     </form>
   )

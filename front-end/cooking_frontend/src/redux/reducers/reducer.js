@@ -16,6 +16,10 @@ const recipesReducer = (state = {allRecipes:[],myRecipes:null}, action) => {
         case "LOAD_MY_RECIPES":
             // only when logged in and allrecipes loaded
             return {...state, myRecipes: action.myRecipes}
+        case "CREATE_NEW_RECIPE":
+            debugger;
+            //add to myrecipes and also allrecipes
+            return state;
         default:
             return state;
     }
