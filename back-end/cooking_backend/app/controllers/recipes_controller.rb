@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 
             s_ings = step["step_ingredients"]
 
-            recstep = RecipeStep.create(recipe_id: @recipe.id, step_num: index, instruction: inst, image: "" )
+            recstep = RecipeStep.create(recipe_id: @recipe.id, step_num: index+1, instruction: inst, image: "" )
 
               step_ingredients = step["step_ingredients"]
 

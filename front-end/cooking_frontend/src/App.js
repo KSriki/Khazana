@@ -70,7 +70,7 @@ handleCreateClick = () => {
 	handleSubmit = (event) => {
 		//check form from redux
 		//post here
-		event.preventDefault()
+		
 		//go back to profile page or to the show page for that recipe
 		console.log(this.props.form.values)
 		
