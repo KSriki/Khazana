@@ -11,24 +11,36 @@ class RecipesController < ApplicationController
         payload = decode(token)
         user_id = payload["user_id"]
         
-    
         create_recipe = params["create_recipe"]
         @recipe = Recipe.create(title: create_recipe["title"], time: create_recipe["time"], category: create_recipe["category"], description: create_recipe["description"], user_id: user_id)
         byebug
         ingredients = create_recipe["ingredients"]
 
-        new_ings = []
+        step_ingredients = []
 
-        ingredients.each_with_index do |ingred, index|
-            byebug
-            ing = ingred[index.to_s]
-            # amount and name - see if name is already in there
-            found = Ingredient.where(name: ing["name"])
-            if found.size == 0
-                # make new ingredient
-                new_ing = Ingredient.create(name: ing["name"])
-            end
+        create_recipe["steps"].each_with_index do |step, index|
+            
+
         end
+
+
+        # new_ings = []
+
+        # # add all ingredients at once or based on step.
+
+        # ingredients.each_with_index do |ingred, index|
+        #     byebug
+        #     ing = ingred[index.to_s]
+        #     # amount and name - see if name is already in there
+        #     found = Ingredient.find_by(name: ing["name"])
+        #     if found
+        #         new_ings.push(found);
+        #     else 
+        #           # make new ingredient  
+        #         new_ing = Ingredient.create(name: ing["name"])
+        #         new_ings.push()
+        #     end
+        # end
 
         render json: { recipe: Recipe.new(@recipe) }, status: :created
     end
@@ -61,7 +73,7 @@ class RecipesController < ApplicationController
                     step_image: rs.image,
                     instruction: rs.instruction,
                     step_ingredients: rs.step_ingredients.map{ |si| 
-                        {amount: si.amount, ingredient: {name: si.ingredient.name, pyramid: si.ingredient.pyramid } }
+                        {amount: si.amount, ingredient: {name: si.ingredient.name} }
                     } 
                 
             }
@@ -73,7 +85,7 @@ class RecipesController < ApplicationController
              
             ings = si[:step_ingredients]
             ings.each do |ing|
-                ing_total = ing[:amount] + " " + ing[:ingredient][:name] + " [" + ing[:ingredient][:pyramid] + "]"
+                ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
                 if !ingredients.include?(ing_total)
                     ingredients.push(ing_total)   
                 end
@@ -81,7 +93,7 @@ class RecipesController < ApplicationController
             end
         end
         
-    
+        # fix time to string
      
         render json: {username: username, recipe: recipe, ingredients: ingredients, recipe_steps: step_ingredients }, status: :accepted
     end

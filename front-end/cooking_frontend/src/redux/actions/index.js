@@ -74,7 +74,7 @@ export function fetchRecipes() {
 
 
 export function fetchCreateRecipe(create_recipe){
-    debugger;
+
     return (dispatch) => {
         dispatch({ type: 'START_CREATE_RECIPES_FETCH_REQUEST' });
         let token = localStorage.getItem('token')

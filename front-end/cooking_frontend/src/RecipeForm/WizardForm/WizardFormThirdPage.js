@@ -21,7 +21,9 @@ const renderError = ({ meta: { touched, error } }) =>
 
   const renderSteps = ({ fields, ingredients, meta: { touched, error } }) => (
     <div>
-    
+
+
+      {/* amounts at every step */}
       <div>
         <Button positive type="button" onClick={() => fields.push({})}>Add Step</Button>
       </div>
@@ -41,11 +43,12 @@ const renderError = ({ meta: { touched, error } }) =>
           
           ingredients ? ingredients.map((ingredient, idx) => {
       
-          const name = `${step}.step_ingredients`
+          const name = `${step}.step_ingredients[${idx}]`
             
             const checkedField = `${step + index}.step_ingredients.${idx}`
-
+            console.log(checkedField)
           return (
+              <div>
               <Field
                 onChange={e => {console.log(e.currentTarget);}}
                 key={idx}
@@ -53,12 +56,26 @@ const renderError = ({ meta: { touched, error } }) =>
                 type="checkbox"
                 component={renderCheckbox}
                 label={ingredient[idx].name}
-              />            
+              /> 
+              <Field
+                onChange={e => {console.log(e.currentTarget);}}
+                name={`${name}.amount`}
+                type="text"
+                component={renderCheckbox}
+                label={`Amount`}
+              /> 
+              </div>           
           )
         }) : null
         
         }
       </FormSection>
+      <Button
+            type="button"
+            title="Remove Step"
+            onClick={() => fields.remove(index)}>
+          <h4>Remove Step #{index + 1}</h4>
+          </Button>
         </div>
         {touched && error && <span>{error}</span>}
         </List.Item>
