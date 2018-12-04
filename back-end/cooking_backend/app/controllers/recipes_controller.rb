@@ -15,13 +15,18 @@ class RecipesController < ApplicationController
         create_recipe = params["create_recipe"]
         @recipe = Recipe.create(title: create_recipe["title"], time: create_recipe["time"], category: create_recipe["category"], description: create_recipe["description"], user_id: user_id)
         byebug
-       
+        ingredients = create_recipe["ingredients"]
+
+        new_ings = []
+
         ingredients.each_with_index do |ingred, index|
+            byebug
             ing = ingred[index.to_s]
             # amount and name - see if name is already in there
             found = Ingredient.where(name: ing["name"])
-            if !found 
-                byebug
+            if found.size == 0
+                # make new ingredient
+                new_ing = Ingredient.create(name: ing["name"])
             end
         end
 
@@ -30,6 +35,8 @@ class RecipesController < ApplicationController
 
 
     # needs recipesteps and the rest -> serialize it after ?
+
+    #remove parsing into own function and use in create and show
 
     def show
         rec_id = params[:id].to_i
@@ -82,6 +89,8 @@ class RecipesController < ApplicationController
   
     private
 
+    #  another params for create recipe?
+    
     def recipe_params
         params.require(:recipe).permit(:title, :time, :category, :description, :thumbnail)
     end
