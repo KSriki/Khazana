@@ -5,6 +5,8 @@ import validate from './validate'
 import renderField from './renderField'
 import {Header, Form, Button, Icon, Divider,List } from 'semantic-ui-react'
 import { connect } from 'react-redux';
+var Infinite = require('react-infinite');
+
 const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <span>{error}</span> : false
 
@@ -47,7 +49,8 @@ const renderError = ({ meta: { touched, error } }) =>
             
             const checkedField = `${step + index}.step_ingredients.${idx}`
             console.log(checkedField)
-          return (
+
+            return !!ingredient[idx] ?  (
               <div>
               <Field
                 onChange={e => {console.log(e.currentTarget);}}
@@ -65,7 +68,8 @@ const renderError = ({ meta: { touched, error } }) =>
                 label={`Amount`}
               /> 
               </div>           
-          )
+          ) : <div>No Ingredients added yet. Go back!</div>
+
         }) : null
         
         }
@@ -108,7 +112,9 @@ class WizardFormThirdPage extends Component {
 
   return (
     <form onSubmit={this.props.handleSubmit}>
-          <FieldArray name="steps" component={renderSteps} ingredients={this.props.ingredients}/>
+          <Infinite containerHeight={350} elementHeight={40}>
+            <FieldArray name="steps" component={renderSteps} ingredients={this.props.ingredients}/>
+          </Infinite>
           <Divider section />
       <div>
         <Button primary type="button" className="previous" onClick={this.props.previousPage}>

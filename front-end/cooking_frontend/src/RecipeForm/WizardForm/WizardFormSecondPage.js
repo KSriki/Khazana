@@ -3,6 +3,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
 import {Header, Form, Button, Icon, Divider,List } from 'semantic-ui-react'
+var Infinite = require('react-infinite');
 
 const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <span>{error}</span> : false
@@ -48,8 +49,9 @@ const renderError = ({ meta: { touched, error } }) =>
   const { handleSubmit, submitting, previousPage } = props
     return (
       <form onSubmit={handleSubmit}>
+      <Infinite containerHeight={350} elementHeight={40}>
         <FieldArray name="ingredients" component={renderMembers}/>
-        
+        </Infinite>
         <Divider section />
       <div>
       <Button primary type="button" className="previous" onClick={previousPage}>

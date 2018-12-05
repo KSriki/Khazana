@@ -92,6 +92,7 @@ class LoginForm extends React.Component {
             />
           </Form.Group>
           <Button type="submit">Login</Button>
+          <Button type="button" onClick={this.props.handleGoToSignUp}>SignUp</Button>
         </Form>
       </Segment>
   ) : <Redirect to="/profile" />

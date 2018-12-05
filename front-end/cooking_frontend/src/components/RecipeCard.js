@@ -12,6 +12,9 @@ import { Card } from 'semantic-ui-react'
 
 const RecipeCard = ({ recipe }) => {
 
+
+
+    //use segment
     return (
         <Link to={'/recipes/'+recipe.id} >
         <Card>
