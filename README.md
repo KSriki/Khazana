@@ -1,6 +1,6 @@
-# CookingForMillenials
+# Khazana
 
-Khazana by Srikant Kumar Kalaputapu
+ "CookingForMillenials" by Srikant Kumar Kalaputapu
 
 Alternative Name: 
 Cooking for Millenials
