@@ -77,6 +77,7 @@ class RecipesController < ApplicationController
     #remove parsing into own function and use in create and show
 
     def show
+            
         rec_id = params[:id].to_i
         recipe = Recipe.find(rec_id)
         # find user name for recipe
@@ -92,9 +93,9 @@ class RecipesController < ApplicationController
         # recipe ingredients
   
     
-        # byebug
+     
         step_ingredients = recipe_steps.map{ |rs| 
-            {       
+            {          
                     step_num: rs.step_num,
                     step_image: rs.image,
                     instruction: rs.instruction,
@@ -108,7 +109,7 @@ class RecipesController < ApplicationController
 
         
         step_ingredients.each do |si|
-             
+            # byebug   
             ings = si[:step_ingredients]
             ings.each do |ing|
                 ing_total = ing[:amount] + " " + ing[:ingredient][:name] 

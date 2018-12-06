@@ -49,7 +49,7 @@ const renderError = ({ meta: { touched, error } }) =>
   const { handleSubmit, submitting, previousPage } = props
     return (
       <form onSubmit={handleSubmit}>
-      <Infinite containerHeight={350} elementHeight={40}>
+     <Infinite containerHeight={500} elementHeight={40}>
         <FieldArray name="ingredients" component={renderMembers}/>
         </Infinite>
         <Divider section />

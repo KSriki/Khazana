@@ -18,7 +18,6 @@ const recipesReducer = (state = {allRecipes:[],myRecipes:null}, action) => {
             return {...state, myRecipes: action.myRecipes}
         case "CREATE_NEW_RECIPE":
             //add to myrecipes and also allrecipes
-            debugger;
             return {...state, allRecipes: [...state.allRecipes, action.newRecipe], myRecipes: [...state.myRecipes, action.newRecipe] };
         default:
             return state;

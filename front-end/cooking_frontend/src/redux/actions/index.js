@@ -92,7 +92,7 @@ export function fetchCreateRecipe(create_recipe){
             //really bad workflow
             // fetchRecipes()
             // fetchUser()
-                debugger;
+                // debugger;
 
                 dispatch({ type:  "CREATE_NEW_RECIPE", newRecipe: json });
             //just add to the already logged in userInfo and allrecipes
@@ -100,6 +100,33 @@ export function fetchCreateRecipe(create_recipe){
     }
 }
 
+export function fetchCreateUser(user){
+    return (dispatch) => {
+        dispatch({ type: 'START_CREATE_USERS_FETCH_REQUEST' });
+        let token = localStorage.getItem('token')
+        fetch(`http://localhost:3000/users`,{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+                //probably want to whitelist
+             body: JSON.stringify({user: user})
+        }).then(res => res.json())
+        .then(json => {
+            //really bad workflow
+            // fetchRecipes()
+            // fetchUser()
+               
+                localStorage.setItem('token', json.token)
+
+                dispatch({type:"LOAD_PROFILE", userInfo: json.user_info})
+                //new user empty
+                dispatch({type:"LOAD_MY_RECIPES", myRecipes: []})
+            //just add to the already logged in userInfo and allrecipes
+        })
+    }
+}
 
 //only really needed for edit
 // export function fetchRecipe(id){

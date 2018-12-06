@@ -2,7 +2,7 @@ class AuthController < ApplicationController
 
     # login
     def create
-
+    
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             # make payload

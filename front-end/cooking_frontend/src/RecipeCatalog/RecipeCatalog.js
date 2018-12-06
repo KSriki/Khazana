@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import {fetchRecipes } from "../redux/actions";
 import RecipeCard from "../components/RecipeCard"
+var Infinite = require('react-infinite');
 
 class RecipeCatalog extends Component {
 
@@ -14,10 +15,10 @@ class RecipeCatalog extends Component {
     render(){
  
      
-        return (<div>
+        return ( <Infinite containerHeight={500} elementHeight={40}>
 
             {this.props.allRecipes.map(recipe => {return <RecipeCard recipe={recipe} />  })}
-        </div>);
+        </Infinite>);
 
     }
 

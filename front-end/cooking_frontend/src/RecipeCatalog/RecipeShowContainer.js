@@ -15,6 +15,7 @@ import RecipeCard from "../components/RecipeCard"
 import RecipeGeneral from './RecipeGeneral';
 
 import RecipeSlideShow from './RecipeSlideShow';
+import { Divider, Header } from 'semantic-ui-react';
 
 
 
@@ -51,6 +52,8 @@ class RecipeShowContainer extends Component {
         return ( <Fragment>
 
             <RecipeGeneral recipe={this.state.recipe.recipe} ingredients={this.state.recipe.ingredients} author={this.state.recipe.username}/>
+            <Divider />
+            <Header as="h4">Swipe to see Steps!</Header>
             <RecipeSlideShow recipe_steps={this.state.recipe.recipe_steps}/>
          </Fragment>)
         }

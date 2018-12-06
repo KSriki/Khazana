@@ -90,8 +90,8 @@ handleCreateClick = () => {
 		//go back to profile page or to the show page for that recipe
 		console.log(this.props.form.values)
 		
-		this.props.fetchCreateRecipe(this.props.form.values)
-
+		this.props.fetchCreateRecipe(this.props.form.values, () => {debugger;})
+	
 	}
 
 	render() {

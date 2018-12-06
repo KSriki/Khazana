@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import { Field, FieldArray, FormSection, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
+import renderInstruction from './renderInstruction'
 import {Header, Form, Button, Icon, Divider,List } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 var Infinite = require('react-infinite');
@@ -36,14 +37,15 @@ const renderError = ({ meta: { touched, error } }) =>
           <Field
             name={`${step}.instruction`}
             type="text"
-            component={renderField}
+            component={renderInstruction}
             label={`Instruction ${index+1}`}/>
           <FormSection>
           <h4> Ingredients used during step: </h4>
 
+          {/* what about ingredients that are empty */}
         { 
-          
-          ingredients ? ingredients.map((ingredient, idx) => {
+         
+          ingredients && ingredients.length > 0 ? ingredients.map((ingredient, idx) => {
       
           const name = `${step}.step_ingredients[${idx}]`
             
@@ -68,9 +70,9 @@ const renderError = ({ meta: { touched, error } }) =>
                 label={`Amount`}
               /> 
               </div>           
-          ) : <div>No Ingredients added yet. Go back!</div>
+          ) : <div>Ingredient {idx+1} is missing information!</div>
 
-        }) : null
+        }) : <div>No Ingredients added yet. Go back!</div>
         
         }
       </FormSection>
@@ -112,7 +114,7 @@ class WizardFormThirdPage extends Component {
 
   return (
     <form onSubmit={this.props.handleSubmit}>
-          <Infinite containerHeight={350} elementHeight={40}>
+          <Infinite containerHeight={500} elementHeight={40}>
             <FieldArray name="steps" component={renderSteps} ingredients={this.props.ingredients}/>
           </Infinite>
           <Divider section />

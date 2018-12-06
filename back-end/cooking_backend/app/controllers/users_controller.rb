@@ -8,11 +8,25 @@ class UsersController < ApplicationController
         render json: {user: UserSerializer.new(user), myrecipes: myrecipes}, status: :accepted
     end
 
-    # Sign Up
+    # Sign Up then sign in
 def create
   @user = User.create(user_params)
+  
   if @user.valid?
-    render json: { user: UserSerializer.new(@user) }, status: :created
+    myrecipes = Recipe.where(user_id: @user.id)
+    payload = {user_id: @user.id}
+    #create token
+    token = encode(payload)
+    render json: {
+        error: false,
+        message: "signed in",
+        token: token,
+        user_info: {
+            username: @user.username,
+            email: @user.email
+        }
+    }, status: :created
+
   else
     render json: { error: 'failed to create user' }, status: :not_acceptable
   end
@@ -22,6 +36,6 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:username, :password)
+  params.require(:user).permit(:username, :email, :password)
 end
 end

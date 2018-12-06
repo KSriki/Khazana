@@ -10,7 +10,7 @@ import {
 import {
     connect
 } from "react-redux";
-import { Card, Icon, Image, Step, List } from 'semantic-ui-react'
+import { Card, Icon, Image, Item, Step, List, Header } from 'semantic-ui-react'
 
 
 
@@ -25,21 +25,25 @@ class RecipeSlide extends Component {
             step = {}
         }
 
-        return (<div>
+        return (
             <Card>
             <Image src={step.step_iamge} alt="No image" />
             <Card.Content>
               <Card.Header>Step {step.step_num}</Card.Header>
+              <br />
               <Card.Meta>
                 <List>
                     {step.step_ingredients.map(si => {return (<List.Item>{si.amount + " " + si.ingredient.name}</List.Item>)})}
                 </List>
               </Card.Meta>
+              <br />
               <Card.Description>
                   {step.instruction}
               </Card.Description>
+    
             </Card.Content>
-          </Card></div>);
+        
+          </Card>);
 
     }
 
