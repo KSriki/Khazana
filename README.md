@@ -1,6 +1,6 @@
-# CookingForMillenials
+# Khazana
 
-Khazana by Srikant Kumar Kalaputapu
+ "CookingForMillenials" by Srikant Kumar Kalaputapu
 
 
 REdux form saves info between users loggin in and out. maybe not store in redux for create recipe
