@@ -112,11 +112,17 @@ class RecipesController < ApplicationController
             # byebug   
             ings = si[:step_ingredients]
             ings.each do |ing|
-                ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
-                if !ingredients.include?(ing_total)
-                    ingredients.push(ing_total)   
+                if ing[:amount] 
+                    ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
+                    if !ingredients.include?(ing_total)
+                        ingredients.push(ing_total)   
+                    end
+                else
+                    ing_total = ing[:ingredient][:name] 
+                    if !ingredients.include?(ing_total)
+                        ingredients.push(ing_total)   
+                    end
                 end
-
             end
         end
         
@@ -148,7 +154,7 @@ class RecipesController < ApplicationController
         # recipe ingredients
   
     
-        # byebug
+        # Step 
         step_ingredients = recipe_steps.map{ |rs| 
             {       
                     step_num: rs.step_num,
@@ -167,9 +173,16 @@ class RecipesController < ApplicationController
              
             ings = si[:step_ingredients]
             ings.each do |ing|
-                ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
-                if !ingredients.include?(ing_total)
-                    ingredients.push(ing_total)   
+                if ing[:amount] 
+                    ing_total = ing[:amount] + " " + ing[:ingredient][:name] 
+                    if !ingredients.include?(ing_total)
+                        ingredients.push(ing_total)   
+                    end
+                else
+                    ing_total = ing[:ingredient][:name] 
+                    if !ingredients.include?(ing_total)
+                        ingredients.push(ing_total)   
+                    end
                 end
 
             end

@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 import { connect } from "react-redux";
 import { fetchUser } from "../redux/actions";
 
-
+import {baseURL} from '../constants/Constants'
 class LoginForm extends React.Component {
   state = {
     username: "",
@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
   //   // })
   // }
 
+  //maybe redux
   handleLoginSubmit = () => {
     console.log('trying to sign in')
     let data = {
@@ -31,7 +32,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     }
 
-    fetch(`http://localhost:3000/login`, {
+    fetch(`${baseURL}/login`, {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",

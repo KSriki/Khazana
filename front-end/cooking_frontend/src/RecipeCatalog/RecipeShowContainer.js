@@ -17,6 +17,9 @@ import RecipeGeneral from './RecipeGeneral';
 import RecipeSlideShow from './RecipeSlideShow';
 import { Divider, Header } from 'semantic-ui-react';
 
+import {baseURL} from '../constants/Constants'
+
+
 
 
 class RecipeShowContainer extends Component {
@@ -33,7 +36,7 @@ class RecipeShowContainer extends Component {
     componentDidMount() {
 
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3000/recipes/${this.props.match.params.id}`, {
+        fetch(`${baseURL}/recipes/${this.props.match.params.id}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }

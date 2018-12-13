@@ -1,5 +1,5 @@
 
-
+import {baseURL} from '../../constants/Constants'
 
 
 
@@ -39,7 +39,7 @@ export function fetchUser() {
         dispatch({ type: 'START_USER_FETCH_REQUEST' });
         let token = localStorage.getItem('token')
         if(token){
-          fetch(`http://localhost:3000/profile`, {
+          fetch(`${baseURL}/profile`, {
             headers: {
               "Authorization" : `Bearer ${token}`
             }
@@ -63,7 +63,7 @@ export function fetchRecipes() {
         
         dispatch({ type: 'START_RECIPES_FETCH_REQUEST' });
       
-        fetch(`http://localhost:3000/recipes`).then(res => res.json())
+        fetch(`${baseURL}/recipes`).then(res => res.json())
         .then(json => {
         dispatch({type:"LOAD_ALL_RECIPES", allRecipes: json})
         })
@@ -75,10 +75,14 @@ export function fetchRecipes() {
 
 export function fetchCreateRecipe(create_recipe){
 
+    //fix create_recipe for undefined amounts
+    // debugger;
+
     return (dispatch) => {
         dispatch({ type: 'START_CREATE_RECIPES_FETCH_REQUEST' });
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3000/recipes`,{
+    
+        fetch(`${baseURL}/recipes`,{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -104,7 +108,7 @@ export function fetchCreateUser(user){
     return (dispatch) => {
         dispatch({ type: 'START_CREATE_USERS_FETCH_REQUEST' });
         let token = localStorage.getItem('token')
-        fetch(`http://localhost:3000/users`,{
+        fetch(`${baseURL}/users`,{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

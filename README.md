@@ -2,6 +2,10 @@
 
 Khazana by Srikant Kumar Kalaputapu
 
+
+REdux form saves info between users loggin in and out. maybe not store in redux for create recipe
+//or just clear in action
+
 Alternative Name: 
 Cooking for Millenials
 

@@ -11,9 +11,9 @@ class MyRecipeList extends Component {
     render(){
         return (
             <Fragment>
-              <Infinite containerHeight={400} elementHeight={40}>
+           
                 {this.props.myRecipes && this.props.myRecipes.length > 0 ? this.props.myRecipes.map(recipe => {return (<RecipeCard recipe={recipe} />)}) : <div>No Recipes</div>}
-              </Infinite>
+          
             </Fragment>
         );
 
