@@ -30,10 +30,11 @@ const renderError = ({ meta: { touched, error } }) =>
             type="text"
             component={renderField}
             label="Amount?"/>
-  <Button
-            type="button"
+  <Button negative
+           
             title="Remove Ingredient"
             onClick={() => fields.remove(index)}>
+            
           <h4>Remove Ingredient #{index + 1}</h4>
           </Button>
         </div>

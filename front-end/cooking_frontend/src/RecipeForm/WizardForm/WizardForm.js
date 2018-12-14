@@ -5,6 +5,7 @@ import WizardFormSecondPage from './WizardFormSecondPage'
 import WizardFormThirdPage from './WizardFormThirdPage'
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import WizardThumbnailPage from './WizardThumbnailPage';
 
 class WizardForm extends Component {
   constructor(props) {
@@ -32,13 +33,14 @@ class WizardForm extends Component {
      (
       <div>
         {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
-        {page === 2 && (
+        {page === 2 && <WizardThumbnailPage        previousPage={this.previousPage} onSubmit={this.nextPage} />}
+        {page === 3 && (
           <WizardFormSecondPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
-        {page === 3 && (
+        {page === 4 && (
           <WizardFormThirdPage
             previousPage={this.previousPage}
             handleSubmit={this.props.handleSubmit}

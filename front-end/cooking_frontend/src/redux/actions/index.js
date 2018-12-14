@@ -81,7 +81,14 @@ export function fetchCreateRecipe(create_recipe){
     return (dispatch) => {
         dispatch({ type: 'START_CREATE_RECIPES_FETCH_REQUEST' });
         let token = localStorage.getItem('token')
-    
+        debugger;
+
+        var formData = new FormData();
+        formData.append("image", create_recipe.thumbnail);
+//         const fd = new FormData();
+//         fd.append("image",create_recipe.thumbnail[0],create_recipe.thumbnail[0].name)
+//         create_recipe.thumbnail = fd;
+// debugger;
         fetch(`${baseURL}/recipes`,{
             method: 'POST',
             headers: {

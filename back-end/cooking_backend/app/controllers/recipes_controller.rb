@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
 
     def create
+        byebug
         token = request.headers["Authorization"].split(' ')[1]
         payload = decode(token)
         user_id = payload["user_id"]
