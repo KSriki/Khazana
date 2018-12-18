@@ -27,7 +27,7 @@ class RecipeSlide extends Component {
 
         return (
             <Card>
-            <Image src={step.step_iamge} alt="No image" />
+           
             <Card.Content>
               <Card.Header>Step {step.step_num}</Card.Header>
               <br />

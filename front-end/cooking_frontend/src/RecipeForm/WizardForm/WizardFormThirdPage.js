@@ -76,7 +76,7 @@ const renderError = ({ meta: { touched, error } }) =>
         
         }
       </FormSection>
-      <Button
+      <Button negative
             type="button"
             title="Remove Step"
             onClick={() => fields.remove(index)}>

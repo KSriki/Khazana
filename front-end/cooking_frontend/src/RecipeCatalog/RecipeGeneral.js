@@ -30,7 +30,7 @@ class RecipeGeneral extends Component {
         }
         return (<Item.Group>
             <Item>
-              <Item.Image size='tiny' src={rec.thumbnail} alt="This Recipe needs a Thumbnail!"/>
+            
         
               <Item.Content>
                 <Item.Header as='a'>{rec.title}</Item.Header>

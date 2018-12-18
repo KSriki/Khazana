@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
 
     def create
+
         token = request.headers["Authorization"].split(' ')[1]
         payload = decode(token)
         user_id = payload["user_id"]
@@ -77,7 +78,7 @@ class RecipesController < ApplicationController
     #remove parsing into own function and use in create and show
 
     def show
-            
+    
         rec_id = params[:id].to_i
         recipe = Recipe.find(rec_id)
         # find user name for recipe
