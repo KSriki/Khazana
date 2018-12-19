@@ -21,30 +21,20 @@ Srikant Kumar Kalaputapu
 
 ## Screenshots
 
-| Homepage  | Recipe |
-| ------------- | ------------- |
-| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  |
+| Homepage  | Recipe | Login | Profile |
+| ------------- | ------------- | ------------- | ------------- |
+| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  | <img src="assets/Login.png" alt="login" width="250" height="500" /> | <img src="assets/Profile.png" alt="profile" width="250" height="500" /> |
 
 
-Homepage
+| Create a User |
+| ------------- |
+| <img src="assets/CreateUser.png" alt="createuser" width="250" height="500" /> |
 
+Creation of a Recipe:
 
-Example recipe page
-
-
-Login
-<img src="assets/Login.png" alt="login" width="250" height="500" />
-
-Create a User
-<img src="assets/CreateUser.png" alt="createuser" width="250" height="500" />
-
-Profile
-<img src="assets/Profile.png" alt="profile" width="250" height="500" />
-
-Creation of Recipe
-<img src="assets/CreateFirst.png" alt="create1" width="250" height="500" />
-<img src="assets/CreateSecond.png" alt="create2" width="250" height="500" />
-<img src="assets/CreateThird.png" alt="create3" width="250" height="500" />
+| Page 1 | Page 2 | Page 3 |
+| ------------- | ------------- | ------------- |  
+| <img src="assets/CreateFirst.png" alt="create1" width="250" height="500" /> | <img src="assets/CreateSecond.png" alt="create2" width="250" height="500" /> | | <img src="assets/CreateThird.png" alt="create3" width="250" height="500" /> |
 
 
 
