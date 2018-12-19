@@ -3,13 +3,44 @@
 
 After struggling to learn how to cook from current recipe sharing sites I decided to make my own web application that would be friendly for mobile devices. A lot of people I know cook by looking at recipes on their mobile devices and a lot of sites are not fit for mobile. Pinching and zooming and dealing with walls of text and people's life stories while reading the instructions of a recipe are two major annoyances I tried to get around when designing my application. 
 
+This project was made during my final section of the FlatIron School Software Developer Bootcamp. 
+
+The Timeline was 2 weeks.
+
+My notes/planning:
+https://docs.google.com/document/d/1zc9DncANSV5YZf480oMcytikV6lw36Jdp-iRif8W2f4/edit?usp=sharing
+
+Trello Board I made:
+https://trello.com/b/GFOpzSXw/khazana-v2
+
+Document with Learning lessons: [Khazana Notes] (Khazana Notes.docx)
+
 ## Author
 
 Srikant Kumar Kalaputapu
 
 ## Screenshots
 
-<img src="assets/Homepage.png" alt="homepage" width="250" height="500" /> <img src="assets/Show.png" alt="showpage" width="250" height="500" />
+Homepage
+<img src="assets/Homepage.png" alt="homepage" width="250" height="500" /> 
+
+Example recipe page
+<img src="assets/Show.png" alt="showpage" width="250" height="500" />
+
+Login
+<img src="assets/Login.png" alt="login" width="250" height="500" />
+
+Create a User
+<img src="assets/CreateUser.png" alt="createuser" width="250" height="500" />
+
+Profile
+<img src="assets/Profile.png" alt="profile" width="250" height="500" />
+
+Creation of Recipe
+<img src="assets/CreateFirst.png" alt="create1" width="250" height="500" />
+<img src="assets/CreateSecond.png" alt="create2" width="250" height="500" />
+<img src="assets/CreateThird.png" alt="create3" width="250" height="500" />
+
 
 
 ## Tech/framework used
