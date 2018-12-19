@@ -84,10 +84,4 @@ In Terminal/Console:
  
  # Type and enter 'yes' when asked for different port (3000 is taken by the backend)
  
- 
- 
 ```
-
-## Collaboration
-- [@KSriki](https://github.com/KSriki/)
-- [@samashtar](https://github.com/samashtar/)
