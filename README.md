@@ -5,7 +5,7 @@ After struggling to learn how to cook from current recipe sharing sites I decide
 
  
 ## Screenshots
-Include logo/demo screenshot etc.
+
 
 ## Tech/framework used
 
@@ -30,10 +30,12 @@ This is a Single-Page Application.
 
 - Image upload for both thumbnail and each steps for a recipe
 - Update and delete for recipes.
+- ADD testing suite
 - Change the ingredients storage on the back end.
 - Change JWT Token storage
 - Remove Redux for creation form
 - Upload to Heroku
+
 
 
 ## How to use
