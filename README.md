@@ -8,7 +8,6 @@ After struggling to learn how to cook from current recipe sharing sites I decide
 Include logo/demo screenshot etc.
 
 ## Tech/framework used
-Ex. -
 
 <b>Built with</b>
 - [React](https://reactjs.org/)
