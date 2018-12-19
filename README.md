@@ -6,7 +6,7 @@ After struggling to learn how to cook from current recipe sharing sites I decide
  
 ## Screenshots
 
-<img src="assets/Homepage.png" alt="homepage" width="200" height="400" />
+<img src="assets/Homepage.png" alt="homepage" width="300" height="500" />
 
 
 ## Tech/framework used
