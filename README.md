@@ -13,7 +13,7 @@ https://docs.google.com/document/d/1zc9DncANSV5YZf480oMcytikV6lw36Jdp-iRif8W2f4/
 Trello Board I made:
 https://trello.com/b/GFOpzSXw/khazana-v2
 
-Document with Learning lessons: [Khazana Notes] (Khazana Notes.docx)
+Document with Learning lessons: [Khazana Notes] (/Khazana Notes.docx)
 
 ## Author
 
@@ -21,11 +21,16 @@ Srikant Kumar Kalaputapu
 
 ## Screenshots
 
+| Homepage  | Recipe |
+| ------------- | ------------- |
+| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  |
+
+
 Homepage
-<img src="assets/Homepage.png" alt="homepage" width="250" height="500" /> 
+
 
 Example recipe page
-<img src="assets/Show.png" alt="showpage" width="250" height="500" />
+
 
 Login
 <img src="assets/Login.png" alt="login" width="250" height="500" />
