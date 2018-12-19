@@ -34,7 +34,7 @@ Creation of a Recipe:
 
 | Page 1 | Page 2 | Page 3 |
 | ------------- | ------------- | ------------- |  
-| <img src="assets/CreateFirst.png" alt="create1" width="250" height="500" /> | <img src="assets/CreateSecond.png" alt="create2" width="250" height="500" /> | | <img src="assets/CreateThird.png" alt="create3" width="250" height="500" /> |
+| <img src="assets/CreateFirst.png" alt="create1" width="250" height="500" /> | <img src="assets/CreateSecond.png" alt="create2" width="250" height="500" /> | <img src="assets/CreateThird.png" alt="create3" width="250" height="500" /> |
 
 
 
