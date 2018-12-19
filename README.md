@@ -21,14 +21,14 @@ Srikant Kumar Kalaputapu
 
 ## Screenshots
 
-| Homepage  | Recipe | Login | Profile |
-| ------------- | ------------- | ------------- | ------------- |
-| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  | <img src="assets/Login.png" alt="login" width="250" height="500" /> | <img src="assets/Profile.png" alt="profile" width="250" height="500" /> |
+| Homepage  | Recipe | 
+| ------------- | ------------- | 
+| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  | 
 
+| Signup | Login | Profile |
+| ------------- | ------------- | ------------- |
+| <img src="assets/CreateUser.png" alt="createuser" width="250" height="500" /> | <img src="assets/Login.png" alt="login" width="250" height="500" /> | <img src="assets/Profile.png" alt="profile" width="250" height="500" /> |
 
-| Create a User |
-| ------------- |
-| <img src="assets/CreateUser.png" alt="createuser" width="250" height="500" /> |
 
 Creation of a Recipe:
 
