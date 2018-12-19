@@ -6,6 +6,8 @@ After struggling to learn how to cook from current recipe sharing sites I decide
  
 ## Screenshots
 
+![Homepage](assets/Homepage.png)
+
 
 ## Tech/framework used
 
