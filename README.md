@@ -3,7 +3,10 @@
 
 After struggling to learn how to cook from current recipe sharing sites I decided to make my own web application that would be friendly for mobile devices. A lot of people I know cook by looking at recipes on their mobile devices and a lot of sites are not fit for mobile. Pinching and zooming and dealing with walls of text and people's life stories while reading the instructions of a recipe are two major annoyances I tried to get around when designing my application. 
 
- 
+## Author
+
+Srikant Kumar Kalaputapu
+
 ## Screenshots
 
 <img src="assets/Homepage.png" alt="homepage" width="250" height="500" /> <img src="assets/Show.png" alt="showpage" width="250" height="500" />
