@@ -19,25 +19,6 @@ Document with Learning lessons: [Khazana Notes] (/Khazana Notes.docx)
 
 Srikant Kumar Kalaputapu
 
-## Screenshots
-
-| Homepage  | Recipe | 
-| ------------- | ------------- | 
-| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  | 
-
-| Signup | Login | Profile |
-| ------------- | ------------- | ------------- |
-| <img src="assets/CreateUser.png" alt="createuser" width="250" height="500" /> | <img src="assets/Login.png" alt="login" width="250" height="500" /> | <img src="assets/Profile.png" alt="profile" width="250" height="500" /> |
-
-
-Creation of a Recipe:
-
-| Page 1 | Page 2 | Page 3 |
-| ------------- | ------------- | ------------- |  
-| <img src="assets/CreateFirst.png" alt="create1" width="250" height="500" /> | <img src="assets/CreateSecond.png" alt="create2" width="250" height="500" /> | <img src="assets/CreateThird.png" alt="create3" width="250" height="500" /> |
-
-
-
 ## Tech/framework used
 
 This is a Single-Page Application.
@@ -114,3 +95,21 @@ In Terminal/Console:
  # Type and enter 'yes' when asked for different port (3000 is taken by the backend)
  
 ```
+## Screenshots
+
+| Homepage  | Recipe | 
+| ------------- | ------------- | 
+| <img src="assets/Homepage.png" alt="homepage" width="250" height="500" />   | <img src="assets/Show.png" alt="showpage" width="250" height="500" />  | 
+
+| Signup | Login | Profile |
+| ------------- | ------------- | ------------- |
+| <img src="assets/CreateUser.png" alt="createuser" width="250" height="500" /> | <img src="assets/Login.png" alt="login" width="250" height="500" /> | <img src="assets/Profile.png" alt="profile" width="250" height="500" /> |
+
+
+Creation of a Recipe:
+
+| Page 1 | Page 2 | Page 3 |
+| ------------- | ------------- | ------------- |  
+| <img src="assets/CreateFirst.png" alt="create1" width="250" height="500" /> | <img src="assets/CreateSecond.png" alt="create2" width="250" height="500" /> | <img src="assets/CreateThird.png" alt="create3" width="250" height="500" /> |
+
+
