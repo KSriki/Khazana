@@ -11,10 +11,10 @@ Include logo/demo screenshot etc.
 
 <b>Built with</b>
 - [React](https://reactjs.org/)
-- [Redux] (https://redux.js.org/)
-- [Ruby on Rails] (https://rubyonrails.org/)
-- [Semantic UI] (https://react.semantic-ui.com/)
-- [JWT] (https://jwt.io/)
+- [Redux](https://redux.js.org/)
+- [Ruby on Rails](https://rubyonrails.org/)
+- [Semantic UI](https://react.semantic-ui.com/)
+- [JWT](https://jwt.io/)
 
 ## Features
 
