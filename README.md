@@ -43,6 +43,7 @@ This is a Single-Page Application.
 - Image upload for both thumbnail and each steps for a recipe
 - Update and delete for recipes.
 - ADD testing suite
+- Automated text to speech for recipes
 - Change the ingredients storage on the back end.
 - Change JWT Token storage
 - Remove Redux for creation form
