@@ -6,6 +6,8 @@ After struggling to learn how to cook from current recipe sharing sites I decide
  
 ## Screenshots
 
+[Homepage](assets/Screen Shot 2018-12-19 at 3.44.08 PM.png)
+
 
 ## Tech/framework used
 
