@@ -15,6 +15,10 @@ https://trello.com/b/GFOpzSXw/khazana-v2
 
 Document with Learning lessons: [Khazana Notes] (/Khazana Notes.docx)
 
+## Demo
+
+[Khazana Demo](https://www.youtube.com/watch?v=II1XP2efX54)
+
 ## Author
 
 Srikant Kumar Kalaputapu
