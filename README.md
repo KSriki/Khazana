@@ -13,7 +13,7 @@ https://docs.google.com/document/d/1zc9DncANSV5YZf480oMcytikV6lw36Jdp-iRif8W2f4/
 Trello Board I made:
 https://trello.com/b/GFOpzSXw/khazana-v2
 
-Document with Learning lessons: [Khazana Notes] (/Khazana Notes.docx)
+Document with Learning lessons: [Khazana Notes](https://github.com/KSriki/Khazana/blob/master/Khazana%20Notes.docx)
 
 ## Demo
 
